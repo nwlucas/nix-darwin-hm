@@ -9,7 +9,7 @@
 
   programs.starship = {
     enable = true;
-    enableFishIntegration = true;
+    enableZshIntegration = true;
 
     settings = {
       "$schema" = "https://starship.rs/config-schema.json";
@@ -34,7 +34,7 @@
       };
 
       battery.disabled = true;
-      package.disabled = true;
+      package.disabled = false;
     };
   };
 }

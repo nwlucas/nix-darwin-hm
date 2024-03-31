@@ -114,7 +114,7 @@
             }
           )
           (listFilesRecursive dir));
-  
+
   in
   mkFlake {
     inherit self inputs;
@@ -137,6 +137,7 @@
 
       extraArgs = {
         user = "nwilliams-lucas";
+        theme = "catppuccin";
         version = "23.11";
       };
     };
