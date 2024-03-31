@@ -11,11 +11,6 @@
   };
 
   programs = {
-    wezterm = {
-      enable = true;
-      enableZshIntegration = true;
-    };
-
     zsh = {
       enable = true;
       autosuggestion.enable = true;
