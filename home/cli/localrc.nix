@@ -1,3 +1,3 @@
 {
-  d.shell.sources = [ "$HOME/bin" "$HOME/.local/bin" ];
+  d.shell.sources = [ "$HOME/.local/bin" ];
 }

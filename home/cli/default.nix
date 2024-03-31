@@ -9,7 +9,7 @@
     ./fzf.nix
     ./gh.nix
     ./jq.nix
-    ./localrc.nix
+    # ./localrc.nix
     ./neovim.nix
     ./nix-index.nix
     ./terraform.nix
