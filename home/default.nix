@@ -10,6 +10,7 @@ in
 {
   imports = [
     ./apps
+    ./cli
     ./ssh_config.nix
     ./autostart.nix
   ];
