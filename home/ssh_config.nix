@@ -10,6 +10,18 @@
             user          = user;
             proxyCommand  = "/opt/homebrew/bin/cloudflared access ssh --hostname %n";
           };
+          ghPersonal = {
+            host          = "github.com";
+            hostname      = "%h";
+            user          = user;
+            identityFile  = "%d/.ssh/id_ed25519";
+          };
+          ghDTLR = {
+            host          = "github.com-work";
+            hostname      = "%h";
+            user          = user;
+            identityFile  = "%d/.ssh/glab-work";
+          };
           sshDTLRONLINE = {
             host          = "*.ssh.dtlronline.com";
             hostname      = "%h";
