@@ -17,9 +17,9 @@
       add_newline = false;
 
       character = {
-        success_symbol = "[✅](bold prompt)";
-        error_symbol = "[🚨](bold red)";
-        vicmd_symbol = "[➡️](bold prompt)";
+        success_symbol = "[>](bold prompt)";
+        error_symbol = "[>](bold red)";
+        vicmd_symbol = "[-](bold prompt)";
       };
 
       cmd_duration = {
