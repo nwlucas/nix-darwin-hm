@@ -20,9 +20,12 @@
             eval "$(/opt/homebrew/bin/brew shellenv)"
         fi
       '';
+      # initExtra = ''
+      #   source "${pkgs.asdf-vm}/share/asdf-vm/asdf.sh"
+      #   source "${pkgs.asdf-vm}/share/asdf-vm/completions/asdf.bash"
+      # '';
       initExtra = ''
         source "${pkgs.asdf-vm}/share/asdf-vm/asdf.sh"
-        source "${pkgs.asdf-vm}/share/asdf-vm/completions/asdf.bash"
       '';
     };
   };
