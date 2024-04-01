@@ -8,7 +8,6 @@
 
   programs.bat = {
     enable = true;
-    enableZshIntegration = true;
     config = {
       theme = "TwoDark";
       style = "plain";
