@@ -1,4 +1,4 @@
-{ pkgs, user, ... }:
+{ pkgs, user, PROJECT_ROOT, ... }:
 let
   # https://brew.sh
   initBrew = ''eval "$(/opt/homebrew/bin/brew shellenv)"'';
@@ -41,6 +41,10 @@ in
   '';
 
   security.pam.enableSudoTouchIdAuth = true;
+  security.pki.installCACerts = true;
+  security.pki.certificateFiles = [
+    "${PROJECT_ROOT}/files/certs/Cloudflare_CA.pem"
+  ]
 
   system.defaults.NSGlobalDomain = {
     AppleInterfaceStyle = "Dark";
