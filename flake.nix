@@ -41,7 +41,7 @@
     inherit (utils.lib) mkFlake;
     inherit (unstable.lib.filesystem) listFilesRecursive;
     inherit (unstable.lib) listToAttrs hasSuffix hasPrefix removeSuffix removePrefix;
-    PROJECT_ROOT = builtins.getEnv "PWD";
+    PROJECT_ROOT = builtins.toString ./.;
 
     nixosConfig = {
       system = "x86_64-linux";
@@ -140,6 +140,7 @@
         user = "nwilliams-lucas";
         theme = "catppuccin";
         version = "23.11";
+        PROJECT_ROOT = PROJECT_ROOT;
       };
     };
 

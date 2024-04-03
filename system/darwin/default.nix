@@ -44,7 +44,7 @@ in
   security.pki.installCACerts = true;
   security.pki.certificateFiles = [
     "${PROJECT_ROOT}/files/certs/Cloudflare_CA.pem"
-  ]
+  ];
 
   system.defaults.NSGlobalDomain = {
     AppleInterfaceStyle = "Dark";
