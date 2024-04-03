@@ -31,6 +31,8 @@ in
     git = {
       enable = true;
 
+      aliases = aliases;
+
       userName = "nwilliams-lucas";
       userEmail = "4689066+nwlucas@users.noreply.github.com";
 

@@ -3,6 +3,7 @@
 {
   programs.gh = {
     enable = true;
+    package = pkgs.github-cli;
 
     settings = {
       # Works well with SSH auth via 1Password
