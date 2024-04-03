@@ -28,5 +28,5 @@
     "com.apple.ImageCapture".disableHotPlug = true;
     # Turn on app auto-update
     "com.apple.commerce".AutoUpdate = true;
-  }
+  };
 }
