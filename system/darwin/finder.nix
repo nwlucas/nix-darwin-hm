@@ -21,7 +21,7 @@
     FXPreferredViewStyle = "“clmv”";
 
     # Keep folders on top when sorting by name
-    XSortFoldersFirst = true;
+    _FXSortFoldersFirst = true;
 
     # Set the default search scope when performing a search. Use “SCcf” to
     # default to current folder. The default is unset (“This Mac”).

@@ -27,6 +27,7 @@
       "teamviewer"
       "zoom"
       "sublime-text"
+      "cloudflare-warp"
     ];
 
     taps = [
