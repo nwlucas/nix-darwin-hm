@@ -5,7 +5,8 @@
 
   programs.zoxide = {
     enable = true;
-    enableFishIntegration = true;
+    enableZshIntegration = true;
+    enableFishIntegration = false;
 
     options = [ "--no-cmd" ];
   };

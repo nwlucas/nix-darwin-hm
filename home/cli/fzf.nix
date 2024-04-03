@@ -14,7 +14,8 @@ in
 {
   programs.fzf = rec {
     enable = true;
-    enableFishIntegration = true;
+    enableZshIntegration = true;
+    enableFishIntegration = false;
 
     defaultOptions = themes.${theme} ++ [
       "--layout=reverse"
