@@ -57,7 +57,7 @@
       ];
     };
 
-    rpiNixosConfig = {
+    armNixosConfig = {
       system = "aarch64-linux";
 
       specialArgs = {
@@ -100,8 +100,8 @@
             darwinMConfig
           else if hasSuffix "darwin" dir then
             darwinConfig
-          else if hasSuffix "rpi" dir then
-            rpiNixosConfig
+          else if hasSuffix "arm" dir then
+            armNixosConfig
           else
             nixosConfig;
       in
@@ -146,7 +146,7 @@
 
     hosts =
       (mkHosts ./hosts/nixos) //
-      (mkHosts ./hosts/nixos-rpi) //
+      (mkHosts ./hosts/nixos-arm) //
       (mkHosts ./hosts/darwinM) //
       (mkHosts ./hosts/darwin);
   };
