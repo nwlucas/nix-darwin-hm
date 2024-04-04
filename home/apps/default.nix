@@ -1,6 +1,6 @@
 {
   imports = [
-    # ./wezterm
+    ./wezterm
 
     ./1password.nix
   ];
