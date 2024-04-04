@@ -25,6 +25,8 @@ in
     git-ignore
   ];
 
+  d.shell.aliases = aliases;
+
   programs = {
     # fish.shellAbbrs = aliases;
 
