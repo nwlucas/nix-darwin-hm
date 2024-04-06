@@ -16,7 +16,7 @@
     # ./systemd.nix
     # ./tmpfs.nix
     # ./trash.nix
-    # ./users.nix
+    ./users.nix
   ];
 
   system.stateVersion = version;
