@@ -11,7 +11,6 @@
     fzf
     git
     gnumake
-    gnupg
     httpie
     killall
     lsof
@@ -23,8 +22,6 @@
     vim
     zoxide
     jq
-    github-cli
-    lazygit
     yq-go
     neovim
     btop
@@ -33,6 +30,5 @@
     direnv
     starship
     atuin
-    asdf-vm
   ];
 }

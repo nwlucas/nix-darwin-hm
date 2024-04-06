@@ -12,6 +12,8 @@ in
     ./keyboard.nix
     ./login.nix
     ./brew.nix
+    ./fonts.nix
+    ./packages.nix
     # ./safari.nix
     ./trackpad.nix
   ];
@@ -25,6 +27,9 @@ in
 
   # User that runs the garbage collector.
   nix.gc.user = user;
+  nix.linkInputs = true;
+  nix.generateRegistryFromInputs = true;
+  nix.generateNixPathFromInputs = true;
   services.nix-daemon = {
     enable = true;
   };
