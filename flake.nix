@@ -3,6 +3,7 @@
 
   inputs = {
     # Nixpkgs
+    stable.url = "github:nixos/nixpkgs/nixos-23.11";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # nix-darwin
@@ -12,6 +13,9 @@
     # Home manager
     hm.url = "github:nix-community/home-manager/master";
     hm.inputs.nixpkgs.follows = "unstable";
+
+    sops-nix.url = "github:Mic92/sops-nix";
+    sops-nix.inputs.nixpkgs.follows = "stable";
 
     hardware.url = "github:NixOS/nixos-hardware/master";
 
@@ -29,6 +33,7 @@
 
   outputs = {
     self,
+    stable,
     unstable,
     darwin,
     hm,
@@ -36,6 +41,7 @@
     persistence,
     vscode-extensions,
     utils,
+    sops-nix,
     ... } @ inputs:
   let
     inherit (utils.lib) mkFlake;
@@ -53,12 +59,14 @@
       modules = [
         persistence.nixosModule
         hm.nixosModules.home-manager
+        sops-nix.nixosModules.sops
         ./system/nixos
       ];
     };
 
     armNixosConfig = {
       system = "aarch64-linux";
+      channelName = "stable";
 
       specialArgs = {
         inherit hardware;
@@ -67,6 +75,7 @@
       modules = [
         persistence.nixosModule
         hm.nixosModules.home-manager
+        sops-nix.nixosModules.sops
         ./system/nixos
       ];
     };
@@ -125,6 +134,7 @@
     };
 
     channels = {
+      stable = {};
       unstable = {};
     };
 

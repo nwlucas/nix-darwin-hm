@@ -13,7 +13,9 @@ in
     ./cli
     ./ssh_config.nix
     ./autostart.nix
+    # lib.mkIf pkgs.stdenv.isDarwin { imports = [./apps]; }
   ];
+
 
   home = {
     username = user;
