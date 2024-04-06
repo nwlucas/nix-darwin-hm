@@ -6,5 +6,6 @@
     github-cli
     lazygit
     asdf-vm
+    vscode
   ];
 }
