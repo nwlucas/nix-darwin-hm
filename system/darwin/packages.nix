@@ -7,5 +7,6 @@
     lazygit
     asdf-vm
     vscode
+    azure-cli
   ];
 }
