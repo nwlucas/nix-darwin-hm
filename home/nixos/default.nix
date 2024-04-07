@@ -28,6 +28,5 @@ in
 
   xdg.enable = true;
   programs.home-manager.enable = true;
-  programs.zsh.enable = true;
   xsession.numlock.enable = pkgs.stdenv.isLinux;
 }

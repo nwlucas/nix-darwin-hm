@@ -50,6 +50,10 @@
   # Shell
   users.defaultUserShell = pkgs.zsh;
 
+  d.hm = [
+    { imports = [ ./shells.nix ]; }
+  ];
+
   # Security
   security.polkit.enable = true;
 

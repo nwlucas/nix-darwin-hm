@@ -36,7 +36,7 @@ in
   };
 
   d.hm = [
-    { imports = [ ./hm ]; }
+    { imports = [ ./shells.nix ]; }
   ];
 
   programs.zsh.interactiveShellInit = ''
