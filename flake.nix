@@ -14,6 +14,9 @@
     hm.url = "github:nix-community/home-manager/master";
     hm.inputs.nixpkgs.follows = "unstable";
 
+    hm-stable.url = "github:nix-community/home-manager/release-23.11";
+    hm-stable.inputs.nixpkgs.follows = "stable";
+
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "stable";
 
@@ -37,6 +40,7 @@
     unstable,
     darwin,
     hm,
+    hm-stable,
     hardware,
     persistence,
     vscode-extensions,
