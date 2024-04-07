@@ -2,6 +2,7 @@
 {
   environment = {
     shells = [ pkgs.zsh ];
+    pathsToLink = [ "/share/zsh" ];
   };
 
   programs = {

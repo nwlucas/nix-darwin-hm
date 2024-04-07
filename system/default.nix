@@ -3,7 +3,6 @@
 {
   imports = [
     ../modules
-    ./hm.nix
     ./nix.nix
     ./packages.nix
     ./shells.nix

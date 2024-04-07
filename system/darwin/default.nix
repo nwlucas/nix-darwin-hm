@@ -9,6 +9,7 @@ in
     ./general.nix
     ./dock.nix
     ./finder.nix
+    ./hm.nix
     ./keyboard.nix
     ./login.nix
     ./brew.nix

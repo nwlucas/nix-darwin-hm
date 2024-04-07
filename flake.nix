@@ -62,7 +62,7 @@
 
       modules = [
         persistence.nixosModule
-        hm.nixosModules.home-manager
+        hm-stable.nixosModules.home-manager
         sops-nix.nixosModules.sops
         ./system/nixos
       ];
@@ -78,7 +78,7 @@
 
       modules = [
         persistence.nixosModule
-        hm.nixosModules.home-manager
+        hm-stable.nixosModules.home-manager
         sops-nix.nixosModules.sops
         ./system/nixos
       ];

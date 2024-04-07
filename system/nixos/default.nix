@@ -5,6 +5,7 @@
     # ./gnome
     # ./auto-login.nix
     ./boot.nix
+    ./hm.nix
     # ./docker.nix
     # ./envfs.nix
     ./hardware.nix
@@ -39,6 +40,12 @@
   };
 
   services.printing.enable = true;
+  services.openssh = {
+    enable = true;
+    settings = {
+      PasswordAuthentication = true;
+    };
+  };
 
   # Shell
   users.defaultUserShell = pkgs.zsh;
@@ -46,7 +53,10 @@
   # Security
   security.polkit.enable = true;
 
+  programs.zsh.enable = true;
+
   programs.dconf.enable = true;
+  programs.mtr.enable = true;
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;

@@ -5,7 +5,6 @@
     ./starship
 
     ./atuin.nix
-    ./eza.nix
     ./fzf.nix
     ./gh.nix
     ./jq.nix
