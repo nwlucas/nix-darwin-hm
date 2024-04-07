@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
 export NIX_SSHOPTS="-o RequestTTY=force -o IdentitiesOnly=yes -t"
-nix-shell -E 'with import <unstable> {}; stdenv.mkDerivation { name = "foo"; buildInputs = [ (nixos {}).nixos-rebuild ]; }' --run "nixos-rebuild --use-remote-sudo -v $*"
+nix-shell -E 'with import <unstable> {}; stdenv.mkDerivation { name = "foo"; buildInputs = [ (nixos {}).nixos-rebuild ]; }' --run "nixos-rebuild --use-remote-sudo $*"
