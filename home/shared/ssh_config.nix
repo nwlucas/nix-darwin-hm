@@ -2,7 +2,13 @@
 {
     programs = {
       ssh = {
-        enable = true;
+        enable         = true;
+        addKeysToAgent = "yes";
+        extraConfig    = {
+          IdentitiesOnly = "yes";
+        };
+
+
         matchBlocks = {
           sshNWLNEXUS = {
             host          = "*.ssh.nwlnexus.net";
@@ -21,6 +27,28 @@
             hostname      = "github.com";
             user          = "git";
             identityFile  = "%d/.ssh/glab-work";
+          };
+          reliantPuppet = {
+            host          = "puppet-aws";
+            hostname      = "172.18.0.10 ";
+            user          = "dtlr_it";
+            forwardAgent  = true;
+            identityFile  = "%d/.ssh/reliant/id_rsa";
+            extraOptions  = { PubkeyAcceptedKeyTypes = "ssh-rsa"; HostKeyAlgorithms = "ssh-dss,ssh-rsa"; };
+          };
+          dtlrStores67 = {
+            host          = "10.67.*.254";
+            user          = "dtlr_it";
+            forwardAgent  = true;
+            identityFile  = "%d/.ssh/reliant/id_rsa";
+            extraOptions  = { PubkeyAcceptedKeyTypes = "ssh-rsa"; HostKeyAlgorithms = "ssh-dss,ssh-rsa"; };
+          };
+          dtlrStores66 = {
+            host          = "10.66.*.254";
+            user          = "dtlr_it";
+            forwardAgent  = true;
+            identityFile  = "%d/.ssh/reliant/id_rsa";
+            extraOptions  = { PubkeyAcceptedKeyTypes = "ssh-rsa"; HostKeyAlgorithms = "ssh-dss,ssh-rsa"; };
           };
           sshDTLRONLINE = {
             host          = "*.ssh.dtlronline.com";
