@@ -8,5 +8,6 @@
     asdf-vm
     vscode
     azure-cli
+    sshpass
   ];
 }
