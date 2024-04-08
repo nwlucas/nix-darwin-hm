@@ -4,9 +4,9 @@
       ssh = {
         enable         = true;
         addKeysToAgent = "yes";
-        extraConfig    = {
-          IdentitiesOnly = "yes";
-        };
+        extraConfig    = ''
+          IdentitiesOnly = "yes"
+        ''
 
 
         matchBlocks = {
