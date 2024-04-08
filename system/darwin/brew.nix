@@ -9,6 +9,7 @@
 
     brews = [
       "cloudflared"
+      "openssl-osx-ca"
     ];
 
     casks = [
@@ -28,7 +29,6 @@
       "zoom"
       "sublime-text"
       "cloudflare-warp"
-      "openssl-osx-ca"
     ];
 
     taps = [
