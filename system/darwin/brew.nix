@@ -28,11 +28,13 @@
       "zoom"
       "sublime-text"
       "cloudflare-warp"
+      "openssl-osx-ca"
     ];
 
     taps = [
       "homebrew/cask-versions"
       "cloudflare/cloudflare"
+      "raggi/ale"
     ];
   };
 }
