@@ -13,13 +13,13 @@
           ghPersonal = {
             host          = "github.com";
             hostname      = "%h";
-            user          = user;
+            user          = "git";
             identityFile  = "%d/.ssh/id_ed25519";
           };
           ghDTLR = {
             host          = "github.com-work";
-            hostname      = "%h";
-            user          = user;
+            hostname      = "github.com";
+            user          = "git";
             identityFile  = "%d/.ssh/glab-work";
           };
           sshDTLRONLINE = {
