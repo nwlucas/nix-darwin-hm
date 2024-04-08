@@ -6,7 +6,7 @@
         addKeysToAgent = "yes";
         extraConfig    = ''
           IdentitiesOnly = "yes"
-        ''
+        '';
 
 
         matchBlocks = {
