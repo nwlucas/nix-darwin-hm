@@ -10,6 +10,11 @@
     darwin.url = "github:LnL7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs-unstable";
 
+    deploy-rs = {
+      url = github:serokell/deploy-rs;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Home manager
     hm.url = "github:nix-community/home-manager/master";
     hm.inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -39,6 +44,7 @@
     nixpkgs,
     nixpkgs-unstable,
     darwin,
+    deploy-rs,
     hm,
     hm-stable,
     hardware,
@@ -163,5 +169,9 @@
       (mkHosts ./hosts/nixos-arm) //
       (mkHosts ./hosts/darwinM) //
       (mkHosts ./hosts/darwin);
+
+    deploy = {
+      nodes = {};
+    };
   };
 }
