@@ -49,8 +49,8 @@
     ... } @ inputs:
   let
     inherit (utils.lib) mkFlake;
-    inherit (unstable.lib.filesystem) listFilesRecursive;
-    inherit (unstable.lib) listToAttrs hasSuffix hasPrefix removeSuffix removePrefix;
+    inherit (nixpkgs-unstable.lib.filesystem) listFilesRecursive;
+    inherit (nixpkgs-unstable.lib) listToAttrs hasSuffix hasPrefix removeSuffix removePrefix;
     PROJECT_ROOT = builtins.toString ./.;
 
     nixosConfig = {
