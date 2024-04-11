@@ -3,22 +3,22 @@
 
   inputs = {
     # Nixpkgs
-    stable.url = "github:nixos/nixpkgs/nixos-23.11";
-    unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # nix-darwin
     darwin.url = "github:LnL7/nix-darwin";
-    darwin.inputs.nixpkgs.follows = "unstable";
+    darwin.inputs.nixpkgs.follows = "nixpkgs-unstable";
 
     # Home manager
     hm.url = "github:nix-community/home-manager/master";
-    hm.inputs.nixpkgs.follows = "unstable";
+    hm.inputs.nixpkgs.follows = "nixpkgs-unstable";
 
     hm-stable.url = "github:nix-community/home-manager/release-23.11";
-    hm-stable.inputs.nixpkgs.follows = "stable";
+    hm-stable.inputs.nixpkgs.follows = "nixpkgs";
 
     sops-nix.url = "github:Mic92/sops-nix";
-    sops-nix.inputs.nixpkgs.follows = "stable";
+    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
 
     hardware.url = "github:NixOS/nixos-hardware/master";
 
@@ -27,17 +27,17 @@
     utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
 
     nix-index.url = "github:Mic92/nix-index-database";
-    nix-index.inputs.nixpkgs.follows = "unstable";
+    nix-index.inputs.nixpkgs.follows = "nixpkgs-unstable";
 
     vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
-    vscode-extensions.inputs.nixpkgs.follows = "unstable";
+    vscode-extensions.inputs.nixpkgs.follows = "nixpkgs-unstable";
 
   };
 
   outputs = {
     self,
-    stable,
-    unstable,
+    nixpkgs,
+    nixpkgs-unstable,
     darwin,
     hm,
     hm-stable,
@@ -70,7 +70,7 @@
 
     armNixosConfig = {
       system = "aarch64-linux";
-      channelName = "stable";
+      channelName = "nixpkgs";
 
       specialArgs = {
         inherit hardware;
@@ -147,7 +147,7 @@
     ];
 
     hostDefaults = {
-      channelName = "unstable";
+      channelName = "nixpkgs-unstable";
       modules = [ ./system ];
 
       extraArgs = {
