@@ -138,8 +138,8 @@
     };
 
     channels = {
-      stable = {};
-      unstable = {};
+      nixpkgs = {};
+      nixpkgs-unstable = {};
     };
 
     sharedOverlays = [

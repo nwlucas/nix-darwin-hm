@@ -13,7 +13,7 @@
     };
 
     package = pkgs.nixFlakes;
-    registry.nixpkgs.flake = inputs.unstable;
+    registry.nixpkgs.flake = inputs.nixpkgs-unstable;
 
     extraOptions = ''
       experimental-features = nix-command flakes
