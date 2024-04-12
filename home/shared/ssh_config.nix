@@ -34,21 +34,40 @@
             user          = "dtlr_it";
             forwardAgent  = true;
             identityFile  = "%d/.ssh/reliant/id_rsa";
-            extraOptions  = { PubkeyAcceptedKeyTypes = "ssh-rsa"; HostKeyAlgorithms = "ssh-dss,ssh-rsa"; };
+            extraOptions  = {
+              PubkeyAcceptedKeyTypes = "ssh-rsa";
+              HostKeyAlgorithms = "ssh-dss,ssh-rsa";
+            };
           };
           dtlrStores67 = {
             host          = "10.67.*.254";
             user          = "dtlr_it";
             forwardAgent  = true;
             identityFile  = "%d/.ssh/reliant/id_rsa";
-            extraOptions  = { PubkeyAcceptedKeyTypes = "ssh-rsa"; HostKeyAlgorithms = "ssh-dss,ssh-rsa"; };
+            extraOptions  = {
+              PubkeyAcceptedKeyTypes = "ssh-rsa";
+              HostKeyAlgorithms = "ssh-dss,ssh-rsa";
+            };
           };
           dtlrStores66 = {
             host          = "10.66.*.254";
             user          = "dtlr_it";
             forwardAgent  = true;
             identityFile  = "%d/.ssh/reliant/id_rsa";
-            extraOptions  = { PubkeyAcceptedKeyTypes = "ssh-rsa"; HostKeyAlgorithms = "ssh-dss,ssh-rsa"; };
+            extraOptions  = {
+              PubkeyAcceptedKeyTypes = "ssh-rsa";
+              HostKeyAlgorithms = "ssh-dss,ssh-rsa";
+            };
+          };
+          dtlrSwitches = {
+            host          = "10.254.0.*";
+            user          = "manager";
+            forwardAgent  = true;
+            extraOptions  = {
+              PubkeyAcceptedKeyTypes  = "ssh-rsa";
+              HostKeyAlgorithms       = "+ssh-dss,ssh-rsa";
+              KexAlgorithms           = "+diffie-hellman-group14-sha1";
+            };
           };
           sshDTLRONLINE = {
             host          = "*.ssh.dtlronline.com";
@@ -63,7 +82,10 @@
             identityFile  = "%d/.ssh/reliant/id_rsa";
             forwardAgent  = true;
             proxyCommand  = "/opt/homebrew/bin/cloudflared access ssh --hostname %n";
-            extraOptions  = { PubkeyAcceptedKeyTypes = "ssh-rsa"; HostKeyAlgorithms = "ssh-dss,ssh-rsa"; };
+            extraOptions  = {
+              PubkeyAcceptedKeyTypes = "ssh-rsa";
+              HostKeyAlgorithms = "ssh-dss,ssh-rsa";
+            };
           };
         };
       };
