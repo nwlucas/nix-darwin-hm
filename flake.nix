@@ -16,7 +16,7 @@
     };
 
     # Home manager
-    hm.url = "github:nix-community/home-manager/master";
+    hm.url = "github:nix-community/home-manager";
     hm.inputs.nixpkgs.follows = "nixpkgs-unstable";
 
     hm-stable.url = "github:nix-community/home-manager/release-23.11";
@@ -25,13 +25,13 @@
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
 
-    hardware.url = "github:NixOS/nixos-hardware/master";
+    hardware.url = "github:NixOS/nixos-hardware";
 
     persistence.url = "github:nix-community/impermanence";
 
     utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
 
-    nix-index.url = "github:Mic92/nix-index-database";
+    nix-index.url = "github:nix-community/nix-index-database";
     nix-index.inputs.nixpkgs.follows = "nixpkgs-unstable";
 
     vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
