@@ -112,11 +112,11 @@
     },
     "hardware": {
       "locked": {
-        "lastModified": 1712760404,
-        "narHash": "sha256-4zhaEW1nB+nGbCNMjOggWeY5nXs/H0Y71q0+h+jdxoU=",
+        "lastModified": 1712909959,
+        "narHash": "sha256-7/5ubuwdEbQ7Z+Vqd4u0mM5L2VMNDsBh54visp27CtQ=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "e1c4bac14beb8c409d0534382cf967171706b9d9",
+        "rev": "f58b25254be441cd2a9b4b444ed83f1e51244f1f",
         "type": "github"
       },
       "original": {
@@ -188,19 +188,11 @@
     },
     "nixpkgs": {
       "locked": {
-<<<<<<< Updated upstream
         "lastModified": 1712741485,
         "narHash": "sha256-bCs0+MSTra80oXAsnM6Oq62WsirOIaijQ/BbUY59tR4=",
         "owner": "nixos",
         "repo": "nixpkgs",
         "rev": "b2cf36f43f9ef2ded5711b30b1f393ac423d8f72",
-=======
-        "lastModified": 1712588820,
-        "narHash": "sha256-y31s5idk3jMJMAVE4Ud9AdI7HT3CgTAeMTJ0StqKN7Y=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "d272ca50d1f7424fbfcd1e6f1c9e01d92f6da167",
->>>>>>> Stashed changes
         "type": "github"
       },
       "original": {
@@ -228,11 +220,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1712608508,
-        "narHash": "sha256-vMZ5603yU0wxgyQeHJryOI+O61yrX2AHwY6LOFyV1gM=",
+        "lastModified": 1712791164,
+        "narHash": "sha256-3sbWO1mbpWsLepZGbWaMovSO7ndZeFqDSdX0hZ9nVyw=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "4cba8b53da471aea2ab2b0c1f30a81e7c451f4b6",
+        "rev": "1042fd8b148a9105f3c0aca3a6177fd1d9360ba5",
         "type": "github"
       },
       "original": {
@@ -266,17 +258,10 @@
         "hm-stable": "hm-stable",
         "nix-index": "nix-index",
         "nixpkgs": "nixpkgs",
-<<<<<<< Updated upstream
         "nixpkgs-unstable": "nixpkgs-unstable",
         "persistence": "persistence",
         "sops-nix": "sops-nix",
         "utils": "utils_2",
-=======
-        "persistence": "persistence",
-        "sops-nix": "sops-nix",
-        "unstable": "unstable",
-        "utils": "utils",
->>>>>>> Stashed changes
         "vscode-extensions": "vscode-extensions"
       }
     },
@@ -391,11 +376,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1712798884,
-        "narHash": "sha256-Q1qzg/UTsCdRx4g4rlweDL2yBQFnevsXTr74ONGoGm4=",
+        "lastModified": 1712908241,
+        "narHash": "sha256-437eFtdwo79m4oPKqTrfhag79hnliG/HkW3CcAL7pdY=",
         "owner": "nix-community",
         "repo": "nix-vscode-extensions",
-        "rev": "df5f35ed20d9f4fd64429c8e8c0bde079702f767",
+        "rev": "203c54546c1768f3d0341b5d26932e9a7e865709",
         "type": "github"
       },
       "original": {

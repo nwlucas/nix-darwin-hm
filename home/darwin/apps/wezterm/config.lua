@@ -15,7 +15,7 @@ local config = {
 	font_size = 13.0,
 	allow_square_glyphs_to_overflow_width = "WhenFollowedBySpace",
 	adjust_window_size_when_changing_font_size = false,
-	warn_about_missing_glyphs = false,
+	warn_about_missing_glyphs = true,
 
 	-- Colors
 	color_scheme = "@d.theme@",
@@ -42,10 +42,11 @@ local config = {
 
 	window_close_confirmation = "NeverPrompt",
 	window_decorations = "RESIZE",
+  native_macos_fullscreen_mode = true,
 
 	-- Tabs
-	use_fancy_tab_bar = false,
-	hide_tab_bar_if_only_one_tab = true,
+	use_fancy_tab_bar = true,
+	hide_tab_bar_if_only_one_tab = false,
 
 	-- Keybindings
 	disable_default_key_bindings = false,

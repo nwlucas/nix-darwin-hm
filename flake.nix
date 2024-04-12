@@ -4,11 +4,7 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
-<<<<<<< Updated upstream
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-=======
-    unstable.url = "github:nixos/nixpkgs/nixos-unstable";
->>>>>>> Stashed changes
 
     # nix-darwin
     darwin.url = "github:LnL7/nix-darwin";
@@ -46,11 +42,7 @@
   outputs = {
     self,
     nixpkgs,
-<<<<<<< Updated upstream
     nixpkgs-unstable,
-=======
-    unstable,
->>>>>>> Stashed changes
     darwin,
     deploy-rs,
     hm,
