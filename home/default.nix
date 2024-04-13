@@ -5,6 +5,21 @@ let
     if pkgs.stdenv.isDarwin
     then "/Users"
     else "/home";
+
+  extraImports =
+    if pkgs.stdenv.isDarwin
+    then [
+        ./apps
+        ./cli
+    ]
+    else if pkgs.stdenv.isLinux
+    then [
+        ./cli/bat
+        ./cli/starship
+        ./cli/jq.nix
+        ./cli/neovim.nix
+    ]
+    else [];
 in
 
 {
@@ -12,21 +27,7 @@ in
     ./ssh_config.nix
     ./autostart.nix
     ./eza.nix
-    lib.mkIf pkgs.stdenv.isDarwin {
-      imports = [
-        ./apps
-        ./cli
-      ];
-    }
-    lib.mkIf pkgs.stdenv.isLinux {
-      imports = [
-        ./cli/bat
-        ./cli/starship
-        ./cli/jq.nix
-        ./cli/neovim.nix
-      ];
-    }
-  ];
+  ] ++ extraImports;
 
 
   home = {
