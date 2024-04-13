@@ -6,13 +6,15 @@ let
     then "/Users"
     else "/home";
 
-  extraImports =
+  darwinImports =
     if pkgs.stdenv.isDarwin
     then [
         ./apps
         ./cli
     ]
-    else if pkgs.stdenv.isLinux
+    else [];
+  linuxImports =
+    if pkgs.stdenv.isLinux
     then [
         ./cli/bat
         ./cli/starship
@@ -27,7 +29,7 @@ in
     ./ssh_config.nix
     ./autostart.nix
     ./eza.nix
-  ] ++ extraImports;
+  ] ++ darwinImports ++ linuxImports;
 
 
   home = {

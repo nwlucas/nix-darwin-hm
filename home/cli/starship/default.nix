@@ -1,5 +1,3 @@
-{ pkgs, ... }:
-
 {
   imports = [
     ./themes.nix
@@ -12,7 +10,6 @@
   programs.starship = {
     enable = true;
     enableZshIntegration = true;
-    package = pkgs.starship
 
     settings = {
       "$schema" = "https://starship.rs/config-schema.json";
