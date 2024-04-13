@@ -9,5 +9,6 @@
     vscode
     azure-cli
     sshpass
+    dotnet-sdk_8
   ];
 }
