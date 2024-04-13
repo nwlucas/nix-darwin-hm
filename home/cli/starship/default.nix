@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
   imports = [
     ./themes.nix
@@ -10,12 +12,34 @@
   programs.starship = {
     enable = true;
     enableZshIntegration = true;
+    package = pkgs.starship
 
     settings = {
       "$schema" = "https://starship.rs/config-schema.json";
 
       add_newline = false;
-
+      erlang = { format = "via [e $version](bold red) "; };
+      git_branch = { symbol = "🌱 "; };
+      git_commit = {
+        commit_hash_length = 4;
+        tag_symbol = "🔖 ";
+      };
+      git_state = {
+        format = "[($state($progress_current of $progress_total))]($style) ";
+        cherry_pick = "[🍒 PICKING](bold red)";
+      };
+      git_status = {
+        conflicted = "🏳";
+        ahead = "🏎💨";
+        behind = "😰";
+        diverged = "😵";
+        untracked = "🤷‍";
+        stashed = "📦";
+        modified = "📝";
+        staged = "[++($count)](green)";
+        renamed = "👅";
+        deleted = "🗑";
+      };
       character = {
         success_symbol = "[❯](bold green)";
         error_symbol = "[❯](bold red)";
@@ -35,6 +59,12 @@
         impure_msg = "";
         pure_msg = "pure ";
       };
+
+      hostname = {
+        ssh_only = false;
+        format = "on [work-box](bold red) ";
+        disabled = false;
+     };
 
       battery.disabled = true;
       package.disabled = false;

@@ -5,7 +5,6 @@
     # ./gnome
     # ./auto-login.nix
     ./boot.nix
-    ./hm.nix
     # ./docker.nix
     # ./envfs.nix
     ./hardware.nix

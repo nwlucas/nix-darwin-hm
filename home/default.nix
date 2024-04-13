@@ -9,14 +9,23 @@ in
 
 {
   imports = [
-    ../shared/cli/bat
-    ../shared/cli/starship
-    ../shared/cli/jq.nix
-    ../shared/cli/neovim.nix
-    ../shared/ssh_config.nix
-    ../shared/autostart.nix
+    ./ssh_config.nix
+    ./autostart.nix
     ./eza.nix
-    # lib.mkIf pkgs.stdenv.isDarwin { imports = [./apps]; }
+    lib.mkIf pkgs.stdenv.isDarwin {
+      imports = [
+        ./apps
+        ./cli
+      ];
+    }
+    lib.mkIf pkgs.stdenv.isLinux {
+      imports = [
+        ./cli/bat
+        ./cli/starship
+        ./cli/jq.nix
+        ./cli/neovim.nix
+      ];
+    }
   ];
 
 

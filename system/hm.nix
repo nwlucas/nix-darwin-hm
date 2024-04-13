@@ -24,7 +24,7 @@ in
       users.${user} = {
         imports = cfg ++ [
           inputs.nix-index.hmModules.nix-index
-          ../../home/nixos
+          ../home
         ];
       };
     };
