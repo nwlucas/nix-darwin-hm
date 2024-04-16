@@ -11,5 +11,6 @@
     sshpass
     dotnet-sdk_8
     powershell
+    mtr-gui
   ];
 }
