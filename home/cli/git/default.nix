@@ -48,11 +48,11 @@ in
         brdel = "branch -D";
         changes = "!f() { git log --pretty=format:'* %s' $1..$2; }; f";
         churn = ''
-        !git log --all -M -C --name-only --format='format:' "$@" | sort | grep -v '^$' | uniq -c | sort | awk 'BEGIN {print "count,file"} {print $1 "," $2}'
+          !git log --all -M -C --name-only --format='format:' "$@" | sort | grep -v '^$' | uniq -c | sort | awk 'BEGIN {print "count,file"} {print $1 "," $2}'
         '';
         details = "log -n1 -p --format=fuller";
         export = ''
-        archive -o latest.tar.gz -9 --prefix=latest/
+          archive -o latest.tar.gz -9 --prefix=latest/
         '';
         root = "rev-parse --show-toplevel";
         subup = "submodule update --init";

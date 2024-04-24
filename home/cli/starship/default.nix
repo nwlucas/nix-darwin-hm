@@ -61,7 +61,7 @@
         ssh_only = false;
         format = "on ($hostname)(bold red) ";
         disabled = false;
-     };
+      };
 
       battery.disabled = true;
       package.disabled = false;
