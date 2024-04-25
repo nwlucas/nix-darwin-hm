@@ -3,16 +3,16 @@
 
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
 
     # nix-darwin
     darwin.url = "github:LnL7/nix-darwin";
-    darwin.inputs.nixpkgs.follows = "nixpkgs-unstable";
+    darwin.inputs.nixpkgs.follows = "nixpkgs";
 
     # Home manager
     hm.url = "github:nix-community/home-manager";
-    hm.inputs.nixpkgs.follows = "nixpkgs-unstable";
+    hm.inputs.nixpkgs.follows = "nixpkgs";
 
     hardware.url = "github:NixOS/nixos-hardware";
 
@@ -23,10 +23,10 @@
     nixos-flake.url = "github:srid/nixos-flake";
 
     nix-index.url = "github:nix-community/nix-index-database";
-    nix-index.inputs.nixpkgs.follows = "nixpkgs-unstable";
+    nix-index.inputs.nixpkgs.follows = "nixpkgs";
 
     vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
-    vscode-extensions.inputs.nixpkgs.follows = "nixpkgs-unstable";
+    vscode-extensions.inputs.nixpkgs.follows = "nixpkgs";
 
     # Devshell
     treefmt-nix.url = "github:numtide/treefmt-nix";
@@ -35,8 +35,8 @@
   outputs = inputs@{ self, hardware, ... }:
     let
       inherit (inputs.flake-parts.lib) mkFlake;
-      inherit (inputs.nixpkgs-unstable.lib.filesystem) listFilesRecursive;
-      inherit (inputs.nixpkgs-unstable.lib) listToAttrs hasSuffix hasPrefix removeSuffix removePrefix;
+      inherit (inputs.nixpkgs.lib.filesystem) listFilesRecursive;
+      inherit (inputs.nixpkgs.lib) listToAttrs hasSuffix hasPrefix removeSuffix removePrefix;
       PROJECT_ROOT = builtins.toString ./.;
 
       nixosConfig = {
@@ -118,9 +118,18 @@
       imports = [
         inputs.treefmt-nix.flakeModule
         inputs.nixos-flake.flakeModule
+        ./users
       ];
 
       perSystem = { self', pkgs, lib, config, ... }: {
+
+        nixos-flake.primary-inputs = [
+          "nixpkgs"
+          "hm"
+          "darwin"
+          "nixos-flake"
+          "nix-index"
+        ];
 
         treefmt.config = {
           projectRootFile = "flake.nix";
