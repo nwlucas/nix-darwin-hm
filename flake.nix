@@ -34,232 +34,118 @@
 
   outputs = inputs@{ self, hardware, ... }:
     let
-      inherit (inputs.flake-parts.lib) mkFlake;
+      inherit (inputs.utils.lib) mkFlake;
       inherit (inputs.nixpkgs.lib.filesystem) listFilesRecursive;
       inherit (inputs.nixpkgs.lib) listToAttrs hasSuffix hasPrefix removeSuffix removePrefix;
       PROJECT_ROOT = builtins.toString ./.;
 
       nixosConfig = {
-        system = "x86_64-linux";
+       system = "x86_64-linux";
 
-        specialArgs = {
-          inherit hardware;
-        };
+       specialArgs = {
+         inherit hardware;
+       };
 
-        modules = [
-          inputs.persistence.nixosModule
-          inputs.hm.nixosModules.home-manager
-          ./system/nixos
-        ];
+       modules = [
+         inputs.persistence.nixosModule
+         inputs.hm.nixosModules.home-manager
+         ./system/nixos
+       ];
       };
 
       armNixosConfig = {
-        system = "aarch64-linux";
-        channelName = "nixpkgs";
+       system = "aarch64-linux";
+       channelName = "nixpkgs";
 
-        specialArgs = {
-          inherit hardware;
-        };
+       specialArgs = {
+         inherit hardware;
+       };
 
-        modules = [
-          inputs.persistence.nixosModule
-          inputs.hm.nixosModules.home-manager
-          ./system/nixos
-        ];
+       modules = [
+         inputs.persistence.nixosModule
+         inputs.hm.nixosModules.home-manager
+         ./system/nixos
+       ];
       };
 
       darwinMConfig = {
-        system = "aarch64-darwin";
-        output = "darwinConfigurations";
-        builder = inputs.darwin.lib.darwinSystem;
+       system = "aarch64-darwin";
+       output = "darwinConfigurations";
+       builder = inputs.darwin.lib.darwinSystem;
 
-        modules = [
-          inputs.hm.darwinModules.home-manager
-          ./system/darwin
-        ];
+       modules = [
+         inputs.hm.darwinModules.home-manager
+         ./system/darwin
+       ];
       };
 
       darwinConfig = {
-        system = "x86_64-darwin";
-        output = "darwinConfigurations";
-        builder = inputs.darwin.lib.darwinSystem;
+       system = "x86_64-darwin";
+       output = "darwinConfigurations";
+       builder = inputs.darwin.lib.darwinSystem;
 
-        modules = [
-          inputs.hm.darwinModules.home-manager
-          ./system/darwin
-        ];
+       modules = [
+         inputs.hm.darwinModules.home-manager
+         ./system/darwin
+       ];
       };
 
       mkHosts = dir:
-        let
-          platform =
-            if hasSuffix "darwinM" dir then
-              darwinMConfig
-            else if hasSuffix "darwin" dir then
-              darwinConfig
-            else if hasSuffix "arm" dir then
-              armNixosConfig
-            else
-              nixosConfig;
-        in
-        listToAttrs (map
-          (host:
-            {
-              name = removeSuffix ".nix" (baseNameOf host);
-              value = platform // {
-                modules = platform.modules ++ [ host ];
-              };
-            }
-          )
-          (listFilesRecursive dir));
-    in
-    mkFlake { inherit self inputs; } {
-      systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
-      imports = [
-        inputs.treefmt-nix.flakeModule
-        inputs.nixos-flake.flakeModule
-        ./users
-      ];
+       let
+         platform =
+           if hasSuffix "darwinM" dir then
+             darwinMConfig
+           else if hasSuffix "darwin" dir then
+             darwinConfig
+           else if hasSuffix "arm" dir then
+             armNixosConfig
+           else
+             nixosConfig;
+       in
+         listToAttrs (map
+           (host:
+             {
+               name = removeSuffix ".nix" (baseNameOf host);
+               value = platform // {
+                 modules = platform.modules ++ [ host ];
+               };
+             }
+           )
+           (listFilesRecursive dir));
 
-      perSystem = { self', pkgs, lib, config, ... }: {
+  in
+  mkFlake {
+  inherit self inputs;
 
-        nixos-flake.primary-inputs = [
-          "nixpkgs"
-          "hm"
-          "darwin"
-          "nixos-flake"
-          "nix-index"
-        ];
+  channelsConfig = {
+   allowUnfree = true;
+  };
 
-        treefmt.config = {
-          projectRootFile = "flake.nix";
-          programs.nixpkgs-fmt.enable = true;
-        };
-        formatter = config.treefmt.build.wrapper;
+  channels = {
+   nixpkgs = {};
+   nixpkgs-stable = {};
+  };
 
-        packages.default = self'.packages.activate;
-        devShells.default = pkgs.mkShell {
-          inputsFrom = [ config.treefmt.build.devShell ];
-          packages = with pkgs; [
-            just
-            colmena
-          ];
-        };
-      };
-    };
-  # let
-  #   inherit (utils.lib) mkFlake;
-  #   inherit (nixpkgs-unstable.lib.filesystem) listFilesRecursive;
-  #   inherit (nixpkgs-unstable.lib) listToAttrs hasSuffix hasPrefix removeSuffix removePrefix;
-  #   PROJECT_ROOT = builtins.toString ./.;
+  sharedOverlays = [
+   inputs.vscode-extensions.overlays.default
+  ];
 
-  #   nixosConfig = {
-  #     system = "x86_64-linux";
+  hostDefaults = {
+   channelName = "nixpkgs";
+   modules = [ ./system ];
 
-  #     specialArgs = {
-  #       inherit hardware;
-  #     };
+   extraArgs = {
+     user = "nwilliams-lucas";
+     theme = "catppuccin";
+     version = "23.11";
+     PROJECT_ROOT = PROJECT_ROOT;
+   };
+  };
 
-  #     modules = [
-  #       persistence.nixosModule
-  #       hm.nixosModules.home-manager
-  #       ./system/nixos
-  #     ];
-  #   };
-
-  #   armNixosConfig = {
-  #     system = "aarch64-linux";
-  #     channelName = "nixpkgs";
-
-  #     specialArgs = {
-  #       inherit hardware;
-  #     };
-
-  #     modules = [
-  #       persistence.nixosModule
-  #       hm.nixosModules.home-manager
-  #       ./system/nixos
-  #     ];
-  #   };
-
-  #   darwinMConfig = {
-  #     system = "aarch64-darwin";
-  #     output = "darwinConfigurations";
-  #     builder = darwin.lib.darwinSystem;
-
-  #     modules = [
-  #       hm.darwinModules.home-manager
-  #       ./system/darwin
-  #     ];
-  #   };
-
-  #   darwinConfig = {
-  #     system = "x86_64-darwin";
-  #     output = "darwinConfigurations";
-  #     builder = darwin.lib.darwinSystem;
-
-  #     modules = [
-  #       hm.darwinModules.home-manager
-  #       ./system/darwin
-  #     ];
-  #   };
-
-  #   mkHosts = dir:
-  #     let
-  #       platform =
-  #         if hasSuffix "darwinM" dir then
-  #           darwinMConfig
-  #         else if hasSuffix "darwin" dir then
-  #           darwinConfig
-  #         else if hasSuffix "arm" dir then
-  #           armNixosConfig
-  #         else
-  #           nixosConfig;
-  #     in
-  #       listToAttrs (map
-  #         (host:
-  #           {
-  #             name = removeSuffix ".nix" (baseNameOf host);
-  #             value = platform // {
-  #               modules = platform.modules ++ [ host ];
-  #             };
-  #           }
-  #         )
-  #         (listFilesRecursive dir));
-
-  # in
-  # mkFlake {
-  #   inherit self inputs;
-
-  #   channelsConfig = {
-  #     allowUnfree = true;
-  #   };
-
-  #   channels = {
-  #     nixpkgs = {};
-  #     nixpkgs-unstable = {};
-  #   };
-
-  #   sharedOverlays = [
-  #     vscode-extensions.overlays.default
-  #   ];
-
-  #   hostDefaults = {
-  #     channelName = "nixpkgs-unstable";
-  #     modules = [ ./system ];
-
-  #     extraArgs = {
-  #       user = "nwilliams-lucas";
-  #       theme = "catppuccin";
-  #       version = "23.11";
-  #       PROJECT_ROOT = PROJECT_ROOT;
-  #     };
-  #   };
-
-  #   hosts =
-  #     (mkHosts ./hosts/nixos) //
-  #     (mkHosts ./hosts/nixos-arm) //
-  #     (mkHosts ./hosts/darwinM) //
-  #     (mkHosts ./hosts/darwin);
-  # };
+  hosts =
+   (mkHosts ./hosts/nixos) //
+   (mkHosts ./hosts/nixos-arm) //
+   (mkHosts ./hosts/darwinM) //
+   (mkHosts ./hosts/darwin);
+  };
 }
