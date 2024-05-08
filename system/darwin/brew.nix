@@ -29,6 +29,8 @@
       "zoom"
       "sublime-text"
       "cloudflare-warp"
+      "temurin"
+      "temurin@20"
     ];
 
     taps = [
