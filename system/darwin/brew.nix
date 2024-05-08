@@ -32,7 +32,6 @@
     ];
 
     taps = [
-      "homebrew/cask-versions"
       "cloudflare/cloudflare"
       "raggi/ale"
     ];
