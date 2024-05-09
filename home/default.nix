@@ -16,11 +16,18 @@ in
     ./cli
   ];
 
+  home.file."Cloudflare_CA.pem".source = ../files/certs/Cloudflare_CA.pem;
+  home.file.".curlrc".source = ../files/.curlrc;
 
   home = {
     username = user;
     homeDirectory = lib.mkForce "${homePrefix}/${user}";
     stateVersion = version;
+
+    sessionVariables = {
+      HOMEBREW_BAT = "1";
+      HOMEBREW_CURLRC = "1";
+    };
   };
 
   xdg.enable = true;

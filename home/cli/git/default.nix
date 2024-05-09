@@ -64,6 +64,7 @@ in
 
       userName = "Nigel Williams-Lucas";
       userEmail = "4689066+nwlucas@users.noreply.github.com";
+      ignores = [ ".DS_Store" ];
 
       # Signing is done via the 1Password app
       signing = {
@@ -104,6 +105,10 @@ in
         rebase.autoStash = true;
 
         push.autoSetupRemote = true;
+
+        http = {
+          sslCAInfo = "~/Cloudflare_CA.pem";
+        };
       };
     };
   };

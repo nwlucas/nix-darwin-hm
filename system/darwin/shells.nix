@@ -27,6 +27,9 @@
       initExtra = ''
         source "${pkgs.asdf-vm}/share/asdf-vm/asdf.sh"
       '';
+      shellAliases = {
+        switch = "darwin-rebuild switch --flake ~/nix-darwin-hm";
+      };
     };
   };
 }
