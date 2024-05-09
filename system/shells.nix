@@ -18,5 +18,9 @@
     gnupg.agent.enable = true;
 
     zsh.enable = true;
+    zsh.variables = {
+      HOMEBREW_BAT = "1";
+      HOMEBREW_CURLRC = "1";
+    };
   };
 }
