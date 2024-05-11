@@ -30,5 +30,7 @@
     direnv
     starship
     atuin
+    nodejs_20
+    rustup
   ];
 }
