@@ -28,6 +28,8 @@
     vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     vscode-extensions.inputs.nixpkgs.follows = "nixpkgs";
 
+    rust-overlay.url = "github:oxalica/rust-overlay";
+
     # Devshell
     treefmt-nix.url = "github:numtide/treefmt-nix";
   };
@@ -128,6 +130,7 @@
 
   sharedOverlays = [
    inputs.vscode-extensions.overlays.default
+   inputs.rust-overlay.overlays.default
   ];
 
   hostDefaults = {

@@ -19,6 +19,11 @@
         if [[ $(uname -m) == 'arm64' ]]; then
             eval "$(/opt/homebrew/bin/brew shellenv)"
         fi
+
+        # Read system-wide modifications.
+        if test -f ~/.zshenv.local; then
+          source ~/.zshenv.local
+        fi
       '';
       # initExtra = ''
       #   source "${pkgs.asdf-vm}/share/asdf-vm/asdf.sh"

@@ -13,5 +13,6 @@
     powershell
     mtr-gui
     kdoctor
+#    rust-bin.selectLatestNightlyWith (toolchain: toolchain.default)
   ];
 }

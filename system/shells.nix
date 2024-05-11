@@ -18,6 +18,8 @@
     gnupg.agent.enable = true;
 
     zsh.enable = true;
+    zsh.enableCompletion = true;
+    zsh.enableBashCompletion = true;
     zsh.variables = {
       HOMEBREW_BAT = "1";
       HOMEBREW_CURLRC = "1";
