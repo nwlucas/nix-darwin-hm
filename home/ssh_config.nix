@@ -5,7 +5,7 @@
       enable = true;
       addKeysToAgent = "yes";
       extraConfig = ''
-        IdentitiesOnly = "yes"
+        IdentitiesOnly yes
       '';
 
 
@@ -27,6 +27,9 @@
           hostname = "github.com";
           user = "git";
           identityFile = "%d/.ssh/glab-work";
+          extraOptions = {
+            IdentitiesOnly = "yes";
+          };
         };
         reliantPuppet = {
           host = "puppet-aws";
