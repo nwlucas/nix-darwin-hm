@@ -33,5 +33,7 @@
     nodejs_20
     tailscale
     p7zip.out
+    libisoburn
+    cloc
   ];
 }
