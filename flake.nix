@@ -4,7 +4,7 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
 
     # nix-darwin
     darwin.url = "github:LnL7/nix-darwin";
@@ -140,7 +140,7 @@
    extraArgs = {
      user = "nwilliams-lucas";
      theme = "catppuccin";
-     version = "23.11";
+     version = "24.05";
      PROJECT_ROOT = PROJECT_ROOT;
    };
   };
