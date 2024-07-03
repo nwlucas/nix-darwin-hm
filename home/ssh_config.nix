@@ -72,6 +72,26 @@
             KexAlgorithms = "+diffie-hellman-group14-sha1";
           };
         };
+        dtlrSwitches2 = {
+          host = "10.220.0.*";
+          user = "manager";
+          forwardAgent = true;
+          extraOptions = {
+            PubkeyAcceptedKeyTypes = "ssh-rsa";
+            HostKeyAlgorithms = "+ssh-dss,ssh-rsa";
+            KexAlgorithms = "+diffie-hellman-group14-sha1";
+          };
+        };
+        dtlrSwitches3 = {
+          host = "10.221.0.*";
+          user = "manager";
+          forwardAgent = true;
+          extraOptions = {
+            PubkeyAcceptedKeyTypes = "ssh-rsa";
+            HostKeyAlgorithms = "+ssh-dss,ssh-rsa";
+            KexAlgorithms = "+diffie-hellman-group14-sha1";
+          };
+        };
         sshDTLRONLINE = {
           host = "*.ssh.dtlronline.com";
           hostname = "%h";
