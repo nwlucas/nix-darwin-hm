@@ -26,6 +26,7 @@
       "pandora"
       "postman"
       "slack"
+      "tailscale"
       "teamviewer"
       "zoom"
       "sublime-text"

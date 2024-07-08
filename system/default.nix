@@ -11,5 +11,4 @@
 
   # Localization
   time.timeZone = "America/New_York";
-  services.tailscale.enable = true;
 }
