@@ -90,7 +90,7 @@ in
 
         gpg = {
           format = "ssh";
-          ssh.program = config.d.apps.onepassword.ssh.sign;
+          ssh.program = "/Applications/1Password.app/Contents/MacOS/op-sign-ssh";
         };
 
         log = {
