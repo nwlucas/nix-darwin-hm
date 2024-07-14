@@ -19,6 +19,7 @@
       "1password-cli"
       "docker"
       "google-chrome"
+      "microsoft-remote-desktop"
       "raycast"
       "scroll-reverser"
       "jetbrains-toolbox"
