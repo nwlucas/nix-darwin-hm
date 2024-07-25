@@ -9,7 +9,7 @@
 
     brews = [
       "cloudflared"
-      "openssl-osx-ca"
+      "openssl@3"
     ];
 
     casks = [

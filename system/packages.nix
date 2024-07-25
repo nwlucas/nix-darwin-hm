@@ -31,8 +31,10 @@
     starship
     atuin
     nodejs_20
+    corepack_latest
     p7zip.out
     libisoburn
     cloc
+    python312Packages.python
   ];
 }
