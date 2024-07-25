@@ -66,7 +66,7 @@ in
       userEmail = "4689066+nwlucas@users.noreply.github.com";
       ignores = [ ".DS_Store" ];
 
-      # Signing is done via the 1Password app
+      #Signing is done via the 1Password app
       signing = {
         signByDefault = false;
         key = config.d.apps.onepassword.ssh.key;
@@ -81,6 +81,11 @@ in
               email = "59927973+nwilliams-lucas@users.noreply.github.com";
               name = "Nigel Williams-Lucas";
             };
+
+            gpg = {
+              format = "ssh";
+              ssh.program = "/Applications/1Password.app/Contents/MacOS/op-sign-ssh";
+            };
           };
         }
       ];
@@ -90,7 +95,7 @@ in
 
         gpg = {
           format = "ssh";
-          ssh.program = config.d.apps.onepassword.ssh.sign;
+          ssh.program = "/Applications/1Password.app/Contents/MacOS/op-sign-ssh";
         };
 
         log = {
