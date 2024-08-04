@@ -27,6 +27,7 @@
     btop
     cheat
     just
+    rustup
     direnv
     starship
     atuin
