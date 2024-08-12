@@ -80,11 +80,16 @@ in
             user = {
               email = "59927973+nwilliams-lucas@users.noreply.github.com";
               name = "Nigel Williams-Lucas";
+              signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMuboq7Wpr2+0SIZoq+MeGW2+5BcvOYnA0k5a6+rvqvC";
             };
 
             gpg = {
               format = "ssh";
               ssh.program = "/Applications/1Password.app/Contents/MacOS/op-sign-ssh";
+            };
+
+            commit = {
+              gpgsign = true;
             };
           };
         }
