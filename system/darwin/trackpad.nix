@@ -23,6 +23,6 @@
     # - WhenScrolling
     # - Automatic
     # - Always
-    AppleShowScrollBars = "Always";
+    AppleShowScrollBars = "WhenScrolling";
   };
 }
