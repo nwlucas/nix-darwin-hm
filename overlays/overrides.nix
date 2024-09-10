@@ -17,6 +17,7 @@ channels: final: prev: {
     ripgrep
     eza
     curl
+    nodejs_22
 
     # Other
     nerdfonts

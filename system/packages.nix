@@ -31,7 +31,7 @@
     direnv
     starship
     atuin
-    nodejs_20
+    nodejs_22
     corepack_latest
     p7zip.out
     libisoburn
