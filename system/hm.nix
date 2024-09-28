@@ -17,6 +17,10 @@ in
       useGlobalPkgs = true;
       useUserPackages = true;
 
+      sharedModules = [
+        inputs.mac-app-util.homeManagerModules.default
+      ];
+
       extraSpecialArgs = {
         inherit version user theme;
       };

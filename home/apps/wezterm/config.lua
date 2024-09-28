@@ -4,7 +4,8 @@ local act = wz.action
 local config = {
 	-- Font
 	font = wz.font_with_fallback({
-		"JetBrains Mono",
+    "JetBrains Mono",
+		"Source Code Pro",
 
 		-- For Symbols
 		{ family = "Symbols Nerd Font Mono", scale = 0.8 },
@@ -21,7 +22,7 @@ local config = {
 	color_scheme = "@d.theme@",
 
 	-- Cursor
-	default_cursor_style = "BlinkingBlock",
+	default_cursor_style = "SteadyBlock",
 	cursor_blink_ease_in = "Constant",
 	cursor_blink_ease_out = "Constant",
 	cursor_blink_rate = 500,
@@ -41,7 +42,7 @@ local config = {
 	},
 
 	window_close_confirmation = "NeverPrompt",
-	window_decorations = "RESIZE",
+	window_decorations = "INTEGRATED_BUTTONS|RESIZE|MACOS_FORCE_ENABLE_SHADOW",
   native_macos_fullscreen_mode = true,
 
 	-- Tabs

@@ -3,8 +3,8 @@
 {
   environment.systemPackages = with pkgs; [
     wezterm
-
     # Utils
+    act
     cmake
     coreutils
     curl
@@ -37,5 +37,6 @@
     libisoburn
     cloc
     python312Packages.python
+    iterm2
   ];
 }

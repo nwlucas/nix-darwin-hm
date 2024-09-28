@@ -1,25 +1,23 @@
-channels: final: prev: {
-  __dontExport = true;
+# channels: final: prev: {
+#   __dontExport = true;
 
-  inherit (channels.unstable)
+#   inherit (channels.unstable)
 
-    # NixOS
-    nix-ld
+#     # NixOS
+#     nix-ld
 
-    # Terminal
-    bat
-    fd
-    fzf
-    navi
-    starship
-    wezterm
-    zoxide
-    ripgrep
-    eza
-    curl
-    nodejs_22
+#     # Terminal
+#     bat
+#     fd
+#     fzf
+#     navi
+#     zoxide
+#     ripgrep
+#     eza
+#     curl
+#     nodejs_22
 
-    # Other
-    nerdfonts
-    ;
-}
+#     # Other
+#     nerdfonts
+#     ;
+# }

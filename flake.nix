@@ -32,6 +32,8 @@
 
     # Devshell
     treefmt-nix.url = "github:numtide/treefmt-nix";
+
+    mac-app-util.url = "github:hraban/mac-app-util";
   };
 
   outputs = inputs@{ self, hardware, ... }:
@@ -77,6 +79,7 @@
 
        modules = [
          inputs.hm.darwinModules.home-manager
+         inputs.mac-app-util.darwinModules.default
          ./system/darwin
        ];
       };
@@ -88,6 +91,7 @@
 
        modules = [
          inputs.hm.darwinModules.home-manager
+         inputs.mac-app-util.darwinModules.default
          ./system/darwin
        ];
       };
