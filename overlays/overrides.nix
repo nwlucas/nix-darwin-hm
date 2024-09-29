@@ -16,7 +16,7 @@
 #     eza
 #     curl
 #     nodejs_22
-
+#     wezterm
 #     # Other
 #     nerdfonts
 #     ;
