@@ -37,7 +37,15 @@
     p7zip.out
     libisoburn
     cloc
-    python312Packages.python
+    (python3.withPackages (ps: with ps; [
+      pip
+      setuptools
+      wheel
+      ruff
+      black
+      isort
+    ]))
+    pre-commit
     iterm2
   ];
 }
