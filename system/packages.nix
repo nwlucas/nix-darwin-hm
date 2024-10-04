@@ -2,7 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
-    wezterm
+    #wezterm
     # Utils
     act
     cmake
