@@ -2,7 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
-    wezterm
+    #wezterm
     # Utils
     act
     cmake
@@ -30,6 +30,7 @@
     rustup
     direnv
     starship
+    nerdfonts
     atuin
     nodejs_22
     corepack_latest
