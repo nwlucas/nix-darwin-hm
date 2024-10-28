@@ -10,10 +10,11 @@
     brews = [
       "cloudflared"
       "openssl@3"
-      "derailed/k9s/k9s"
+      "k9s"
       "Azure/kubelogin/kubelogin"
       "opentofu"
       "pgroll"
+      "derailed/k9s/k9s"
     ];
 
     casks = [
@@ -44,6 +45,8 @@
       "cloudflare/cloudflare"
       "raggi/ale"
       "xataio/pgroll"
+      "derailed/k9s"
+      "Azure/kubelogin"
     ];
   };
 }
