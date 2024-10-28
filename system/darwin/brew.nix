@@ -10,6 +10,9 @@
     brews = [
       "cloudflared"
       "openssl@3"
+      "derailed/k9s/k9s"
+      "Azure/kubelogin/kubelogin"
+      "opentofu"
     ];
 
     casks = [

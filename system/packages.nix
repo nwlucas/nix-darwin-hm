@@ -37,6 +37,7 @@
     libisoburn
     cloc
     python312Packages.python
+    python312Packages.ansible-core
     iterm2
   ];
 }
