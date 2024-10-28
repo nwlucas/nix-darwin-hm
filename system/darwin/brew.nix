@@ -13,6 +13,7 @@
       "derailed/k9s/k9s"
       "Azure/kubelogin/kubelogin"
       "opentofu"
+      "pgroll"
     ];
 
     casks = [
@@ -42,6 +43,7 @@
     taps = [
       "cloudflare/cloudflare"
       "raggi/ale"
+      "xataio/pgroll"
     ];
   };
 }
