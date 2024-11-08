@@ -28,6 +28,10 @@ in
       HOMEBREW_BAT = "1";
       HOMEBREW_CURLRC = "1";
     };
+
+    sessionPath = [
+      "${homePrefix}/${user}/.local/bin"
+    ];
   };
 
   xdg.enable = true;
