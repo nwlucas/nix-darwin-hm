@@ -9,7 +9,6 @@
     coreutils
     curl
     fzf
-    git
     gnumake
     httpie
     killall
@@ -17,7 +16,6 @@
     neofetch
     ripgrep
     unzip
-    eza
     bat
     vim
     zoxide
@@ -37,6 +35,5 @@
     p7zip.out
     libisoburn
     cloc
-    iterm2
   ];
 }

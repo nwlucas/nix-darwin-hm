@@ -3,8 +3,11 @@
 {
   nix = {
     settings = {
-      auto-optimise-store = true;
       trusted-users = [ "root" "@wheel" ];
+    };
+
+    optimise = {
+      automatic = true;
     };
 
     gc = {
@@ -12,7 +15,7 @@
       options = "--delete-older-than 10d";
     };
 
-    package = pkgs.nixFlakes;
+    package = pkgs.nixVersions.stable;
     registry.nixpkgs.flake = inputs.nixpkgs;
 
     extraOptions = ''

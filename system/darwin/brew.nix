@@ -19,6 +19,9 @@
       "pipx"
       "ansible"
       "ansible-lint"
+      "doctl"
+      "kubectl"
+      "helm"
     ];
 
     casks = [
@@ -43,6 +46,7 @@
       "cloudflare-warp"
       "temurin"
       "temurin@20"
+      "iterm2"
     ];
 
     taps = [

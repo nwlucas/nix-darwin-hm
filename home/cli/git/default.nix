@@ -2,7 +2,7 @@
 
 let
   aliases = {
-    g = "git status";
+    gs = "git status";
     ga = "git add .";
     gbr = "git branch -av";
     gbrn = "git !git branch | grep \"^*\" | awk '{ print $2 }'";
@@ -12,7 +12,7 @@ let
     gd = "git diff";
     gl = "git log";
     grs = "git restore";
-    gs = "git switch";
+    gsw = "git switch";
     gp = "git pull";
     gP = "git push";
   };

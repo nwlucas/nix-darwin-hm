@@ -2,15 +2,14 @@
 
 {
   d.shell.aliases = {
-    cat = "bat";
-    catp = "bat -P";
+    cat = "bat -P";
   };
 
   programs.bat = {
     enable = true;
     config = {
       theme = "TwoDark";
-      style = "plain";
+      style = "numbers,changes,header";
     };
   };
 

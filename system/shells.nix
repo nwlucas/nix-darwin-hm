@@ -6,7 +6,11 @@
   };
 
   programs = {
-    bash.enableCompletion = true;
+    bash = {
+      completion = {
+        enable = true;
+      };
+    };
 
     direnv = {
       enable = true;
