@@ -22,6 +22,7 @@
       "doctl"
       "kubectl"
       "helm"
+      "orbstack"
     ];
 
     casks = [
