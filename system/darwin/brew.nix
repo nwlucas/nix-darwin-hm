@@ -23,6 +23,7 @@
       "kubectl"
       "helm"
       "orbstack"
+      "wezterm"
     ];
 
     casks = [

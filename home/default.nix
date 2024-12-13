@@ -16,7 +16,7 @@ in
     ./cli
   ];
 
-  home.file."Cloudflare_CA.pem".source = ../files/certs/Cloudflare_CA.pem;
+  home.file."Cloudflare_CA.pem".source = ../files/certs/certificate.pem;
   home.file.".curlrc".source = ../files/.curlrc;
 
   home = {
