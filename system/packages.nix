@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -28,12 +28,11 @@
     rustup
     direnv
     starship
-    nerdfonts
     atuin
     nodejs_22
     corepack_latest
     p7zip.out
     libisoburn
     cloc
-  ];
+  ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 }

@@ -22,8 +22,6 @@
       "doctl"
       "kubectl"
       "helm"
-      "orbstack"
-      "wezterm"
     ];
 
     casks = [
@@ -49,6 +47,8 @@
       "temurin"
       "temurin@20"
       "iterm2"
+      "orbstack"
+      "wezterm"
     ];
 
     taps = [

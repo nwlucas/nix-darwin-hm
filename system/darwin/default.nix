@@ -48,7 +48,7 @@ in
   security.pam.enableSudoTouchIdAuth = true;
   security.pki.installCACerts = true;
   security.pki.certificateFiles = [
-    "${PROJECT_ROOT}/files/certs/Cloudflare_CA.pem"
+    "${PROJECT_ROOT}/files/certs/certificate.pem"
   ];
 
   system.defaults.NSGlobalDomain = {
