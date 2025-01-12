@@ -7,7 +7,7 @@
     };
 
     optimise = {
-      automatic = true;
+      automatic = false;
     };
 
     gc = {
