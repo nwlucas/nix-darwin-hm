@@ -18,6 +18,7 @@ in
 
   home.file."Cloudflare_CA.pem".source = ../files/certs/certificate.pem;
   home.file.".curlrc".source = ../files/.curlrc;
+  home.file.".ssh/id_ed25519" = ../files/personal.pub;
 
   home = {
     username = user;

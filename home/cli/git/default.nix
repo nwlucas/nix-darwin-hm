@@ -68,7 +68,7 @@ in
 
       #Signing is done via the 1Password app
       signing = {
-        signByDefault = false;
+        signByDefault = true;
         key = config.d.apps.onepassword.ssh.key;
       };
 
@@ -120,7 +120,7 @@ in
 
         gpg = {
           format = "ssh";
-          ssh.program = "/Applications/1Password.app/Contents/MacOS/op-sign-ssh";
+          ssh.program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
         };
 
         log = {

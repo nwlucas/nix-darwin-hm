@@ -20,7 +20,7 @@ in
           key = mkOption {
             type = types.str;
             default =
-              "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAUf2GYFarEpC8HsV6964tE6xU2zIh5MfwVvXxkq3AUf";
+              "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBvhX5961G5kV7a9/p6nEBriBRUqE691VCcRDkot8EXD";
           };
 
           agent = mkOption {
