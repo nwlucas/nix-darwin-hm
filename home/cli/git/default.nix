@@ -89,7 +89,7 @@ in
 
             gpg = {
               format = "ssh";
-              ssh.program = "/Applications/1Password.app/Contents/MacOS/op-sign-ssh";
+              ssh.program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
             };
           };
         }
@@ -109,7 +109,7 @@ in
 
             gpg = {
               format = "ssh";
-              ssh.program = "/Applications/1Password.app/Contents/MacOS/op-sign-ssh";
+              ssh.program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
             };
           };
         }
