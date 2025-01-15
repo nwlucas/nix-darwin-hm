@@ -31,37 +31,37 @@
             IdentitiesOnly = "yes";
           };
         };
-        reliantPuppet = {
-          host = "puppet-aws";
-          hostname = "172.18.0.10 ";
-          user = "dtlr_it";
-          forwardAgent = true;
-          identityFile = "%d/.ssh/reliant/id_rsa";
-          extraOptions = {
-            PubkeyAcceptedKeyTypes = "ssh-rsa";
-            HostKeyAlgorithms = "ssh-dss,ssh-rsa";
-          };
-        };
-        dtlrStores67 = {
-          host = "10.67.*.254";
-          user = "dtlr_it";
-          forwardAgent = true;
-          identityFile = "%d/.ssh/reliant/id_rsa";
-          extraOptions = {
-            PubkeyAcceptedKeyTypes = "ssh-rsa";
-            HostKeyAlgorithms = "ssh-dss,ssh-rsa";
-          };
-        };
-        dtlrStores66 = {
-          host = "10.66.*.254";
-          user = "dtlr_it";
-          forwardAgent = true;
-          identityFile = "%d/.ssh/reliant/id_rsa";
-          extraOptions = {
-            PubkeyAcceptedKeyTypes = "ssh-rsa";
-            HostKeyAlgorithms = "ssh-dss,ssh-rsa";
-          };
-        };
+        # reliantPuppet = {
+        #   host = "puppet-aws";
+        #   hostname = "172.18.0.10 ";
+        #   user = "dtlr_it";
+        #   forwardAgent = true;
+        #   identityFile = "%d/.ssh/reliant/id_rsa";
+        #   extraOptions = {
+        #     PubkeyAcceptedKeyTypes = "ssh-rsa";
+        #     HostKeyAlgorithms = "ssh-dss,ssh-rsa";
+        #   };
+        # };
+        # dtlrStores67 = {
+        #   host = "10.67.*.254";
+        #   user = "dtlr_it";
+        #   forwardAgent = true;
+        #   identityFile = "%d/.ssh/reliant/id_rsa";
+        #   extraOptions = {
+        #     PubkeyAcceptedKeyTypes = "ssh-rsa";
+        #     HostKeyAlgorithms = "ssh-dss,ssh-rsa";
+        #   };
+        # };
+        # dtlrStores66 = {
+        #   host = "10.66.*.254";
+        #   user = "dtlr_it";
+        #   forwardAgent = true;
+        #   identityFile = "%d/.ssh/reliant/id_rsa";
+        #   extraOptions = {
+        #     PubkeyAcceptedKeyTypes = "ssh-rsa";
+        #     HostKeyAlgorithms = "ssh-dss,ssh-rsa";
+        #   };
+        # };
         dtlrSwitches = {
           host = "10.254.0.*";
           user = "manager";
