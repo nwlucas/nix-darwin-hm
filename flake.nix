@@ -12,7 +12,7 @@
 
     # Home manager
     hm.url = "github:nix-community/home-manager";
-    hm.inputs.nixpkgs.follows = "nixpkgs";
+    hm.inputs.nixpkgs.follows = "nixpkgs-stable";
 
     hardware.url = "github:NixOS/nixos-hardware";
 

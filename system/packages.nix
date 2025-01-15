@@ -33,6 +33,5 @@
     corepack_latest
     p7zip.out
     libisoburn
-    cloc
   ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 }
