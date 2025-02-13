@@ -7,6 +7,8 @@ let
 in
 {
   config = {
+    ids.gids.nixbld = 350;
+    
     home-manager = {
       users.${user} = {
         home = {
