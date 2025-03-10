@@ -74,6 +74,7 @@ in
     sessionVariables = {
       HOMEBREW_BAT = "1";
       HOMEBREW_CURLRC = "1";
+      VOLTA_FEATURE_PNPM = "1";
     };
 
     sessionPath = [
