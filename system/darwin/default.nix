@@ -40,7 +40,7 @@ in
     end
   '';
 
-  security.pam.enableSudoTouchIdAuth = true;
+  security.pam.services.sudo_local.touchIdAuth = true;
   security.pki.installCACerts = true;
   security.pki.certificateFiles = [
     "${PROJECT_ROOT}/files/certs/certificate.pem"

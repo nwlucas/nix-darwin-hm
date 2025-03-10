@@ -1,4 +1,4 @@
-{ pkgs, lib, user, version, ... }:
+{ pkgs, lib, config, user, version, ... }:
 
 let
   homePrefix =
@@ -78,6 +78,7 @@ in
 
     sessionPath = [
       "${homePrefix}/${user}/.local/bin"
+      "${homePrefix}/${user}/.volta/bin"
     ];
   };
 

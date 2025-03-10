@@ -21,7 +21,6 @@
     zoxide
     jq
     yq-go
-    neovim
     btop
     cheat
     just
@@ -29,9 +28,8 @@
     direnv
     starship
     atuin
-    nodejs_22
-    corepack_latest
     p7zip.out
     libisoburn
+    volta
   ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 }
