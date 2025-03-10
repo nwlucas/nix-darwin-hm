@@ -29,6 +29,7 @@
       "angry-ip-scanner"
       "1password"
       "1password-cli"
+      "cyberduck"
       "docker"
       "google-chrome"
       "microsoft-remote-desktop"
