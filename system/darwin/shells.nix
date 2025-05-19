@@ -29,8 +29,9 @@
       #   source "${pkgs.asdf-vm}/share/asdf-vm/asdf.sh"
       #   source "${pkgs.asdf-vm}/share/asdf-vm/completions/asdf.bash"
       # '';
-      initExtra = ''
+      initContent = ''
         source "${pkgs.asdf-vm}/share/asdf-vm/asdf.sh"
+        export PATH="$(brew --prefix python)/libexec/bin:$PATH"
       '';
       shellAliases = {
         switch = "darwin-rebuild switch --flake ~/nix-darwin-hm";
