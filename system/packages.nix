@@ -30,6 +30,5 @@
     atuin
     p7zip.out
     libisoburn
-    volta
   ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 }

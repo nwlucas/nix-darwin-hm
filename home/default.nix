@@ -48,6 +48,12 @@ in
         '';
         target = "${homePrefix}/${user}/.curlrc";
       };
+      "asdfrc" = {
+        text = ''
+        legacy_version_file = yes
+        '';
+        target = "${homePrefix}/${user}/.asdfrc";
+      };
       "gh-ssh" = {
         text = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBvhX5961G5kV7a9/p6nEBriBRUqE691VCcRDkot8EXD";
         target = "hm_dummy/gh-ssh";
@@ -79,7 +85,6 @@ in
 
     sessionPath = [
       "${homePrefix}/${user}/.local/bin"
-      "${homePrefix}/${user}/.volta/bin"
     ];
   };
 

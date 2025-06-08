@@ -136,9 +136,9 @@ in
 
         push.autoSetupRemote = true;
 
-        http = {
-          sslCAInfo = "~/Cloudflare_CA.pem";
-        };
+        # http = {
+        #   sslCAInfo = "~/Cloudflare_CA.pem";
+        # };
       };
     };
   };

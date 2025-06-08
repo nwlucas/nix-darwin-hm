@@ -6,6 +6,9 @@
       upgrade = true;
       cleanup = "uninstall";
     };
+    caskArgs = {
+      fontdir = "~/Library/Fonts";
+    };
 
     brews = [
       "cloudflared"

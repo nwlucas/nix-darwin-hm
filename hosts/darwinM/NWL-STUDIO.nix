@@ -9,6 +9,8 @@ in
   config = {
     ids.gids.nixbld = 30000;
 
+    system.primaryUser = "nwilliams-lucas";
+
     home-manager = {
       users.${user} = {
         home = {

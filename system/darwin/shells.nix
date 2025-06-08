@@ -1,4 +1,10 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, user, ... }:
+let
+  homePrefix =
+    if pkgs.stdenv.isDarwin
+    then "/Users"
+    else "/home";
+in
 {
   # Change the default shell to zsh
   home.activation = {
@@ -34,7 +40,7 @@
         export PATH="$(brew --prefix python)/libexec/bin:$PATH"
       '';
       shellAliases = {
-        switch = "darwin-rebuild switch --flake ~/nix-darwin-hm";
+        switch = "darwin-rebuild switch --flake ${homePrefix}/${user}/nix-darwin-hm";
       };
     };
   };
