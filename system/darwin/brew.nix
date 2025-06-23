@@ -33,7 +33,6 @@
       "1password"
       "1password-cli"
       "cyberduck"
-      "docker"
       "google-chrome"
       "microsoft-remote-desktop"
       "raycast"
@@ -43,7 +42,7 @@
       "pandora"
       "postman"
       "slack"
-      "tailscale"
+      "tailscale-app"
       "teamviewer"
       "zoom"
       "sublime-text"
@@ -53,6 +52,7 @@
       "iterm2"
       "orbstack"
       "wezterm"
+      "zed"
     ];
 
     taps = [
