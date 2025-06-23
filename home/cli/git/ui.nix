@@ -1,5 +1,3 @@
-{ pkgs, ... }:
-
 {
   d.shell.aliases = {
     gi = "lazygit";

@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, lib, inputs, ... }:
 
 {
   nix = {
@@ -15,8 +15,8 @@
       options = "--delete-older-than 10d";
     };
 
-    package = pkgs.nixVersions.stable;
-    registry.nixpkgs.flake = inputs.nixpkgs;
+    package = pkgs.nixVersions.latest;
+    registry.nixpkgs.flake = lib.mkDefault inputs.nixpkgs-stable;
 
     extraOptions = ''
       experimental-features = nix-command flakes

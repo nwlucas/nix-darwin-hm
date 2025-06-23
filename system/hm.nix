@@ -1,4 +1,4 @@
-{ config, options, inputs, lib, version, user, theme, ... }:
+{ config, inputs, lib, version, user, theme, ... }:
 
 with lib;
 

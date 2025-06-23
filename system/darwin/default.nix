@@ -1,4 +1,4 @@
-{ pkgs, user, PROJECT_ROOT, ... }:
+{ PROJECT_ROOT, ... }:
 let
   # https://brew.sh
   initBrew = ''eval "$(/opt/homebrew/bin/brew shellenv)"'';

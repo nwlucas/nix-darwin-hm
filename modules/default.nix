@@ -1,6 +1,6 @@
 {
   imports = [
-    # ./nix.nix
+    ./nix.nix
     # ./profiles.nix
     ./shell.nix
   ];

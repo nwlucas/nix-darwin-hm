@@ -4,14 +4,14 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
 
     # nix-darwin
-    darwin.url = "github:LnL7/nix-darwin";
-    darwin.inputs.nixpkgs.follows = "nixpkgs";
+    darwin.url = "github:nix-darwin/nix-darwin/nix-darwin-25.05";
+    darwin.inputs.nixpkgs.follows = "nixpkgs-stable";
 
     # Home manager
-    hm.url = "github:nix-community/home-manager";
+    hm.url = "github:nix-community/home-manager/release-25.05";
     hm.inputs.nixpkgs.follows = "nixpkgs-stable";
 
     hardware.url = "github:NixOS/nixos-hardware";
@@ -23,10 +23,10 @@
     nixos-flake.url = "github:srid/nixos-flake";
 
     nix-index.url = "github:nix-community/nix-index-database";
-    nix-index.inputs.nixpkgs.follows = "nixpkgs";
+    nix-index.inputs.nixpkgs.follows = "nixpkgs-stable";
 
     vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
-    vscode-extensions.inputs.nixpkgs.follows = "nixpkgs";
+    vscode-extensions.inputs.nixpkgs.follows = "nixpkgs-stable";
 
     rust-overlay.url = "github:oxalica/rust-overlay";
 
@@ -40,7 +40,7 @@
     let
       inherit (inputs.utils.lib) mkFlake;
       inherit (inputs.nixpkgs.lib.filesystem) listFilesRecursive;
-      inherit (inputs.nixpkgs.lib) listToAttrs hasSuffix hasPrefix removeSuffix removePrefix;
+      inherit (inputs.nixpkgs.lib) listToAttrs hasSuffix removeSuffix;
       PROJECT_ROOT = builtins.toString ./.;
 
       nixosConfig = {
@@ -138,13 +138,13 @@
   ];
 
   hostDefaults = {
-   channelName = "nixpkgs";
+   channelName = "nixpkgs-stable";
    modules = [ ./system ];
 
    extraArgs = {
      user = "nwilliams-lucas";
      theme = "catppuccin";
-     version = "24.11";
+     version = "25.05";
      PROJECT_ROOT = PROJECT_ROOT;
    };
   };

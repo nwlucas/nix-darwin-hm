@@ -1,4 +1,4 @@
-{ pkgs, lib, theme, ... }:
+{ lib, theme, ... }:
 
 let
   themes = {

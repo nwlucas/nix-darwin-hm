@@ -1,4 +1,4 @@
-{ pkgs, config, user, ... }:
+{ pkgs, user, ... }:
 let
   homePrefix =
     if pkgs.stdenv.isDarwin
@@ -10,7 +10,7 @@ in
     ids.gids.nixbld = 350;
 
     system.primaryUser = "nwilliams-lucas";
-    
+
     home-manager = {
       users.${user} = {
         home = {

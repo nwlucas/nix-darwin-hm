@@ -1,4 +1,4 @@
-{ pkgs, lib, config, user, version, ... }:
+{ pkgs, lib, user, version, ... }:
 
 let
   homePrefix =
@@ -81,14 +81,17 @@ in
       HOMEBREW_BAT = "1";
       HOMEBREW_CURLRC = "1";
       VOLTA_FEATURE_PNPM = "1";
+      GOPATH = "${homePrefix}/${user}/go";
     };
 
     sessionPath = [
       "${homePrefix}/${user}/.local/bin"
+      "${homePrefix}/${user}/go/bin"
     ];
   };
 
   xdg.enable = true;
   programs.home-manager.enable = true;
+  programs.go.enable = true;
   xsession.numlock.enable = pkgs.stdenv.isLinux;
 }

@@ -1,4 +1,4 @@
-{ pkgs, config, user, ... }:
+{ pkgs, user, ... }:
 let
   homePrefix =
     if pkgs.stdenv.isDarwin

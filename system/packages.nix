@@ -30,5 +30,12 @@
     atuin
     p7zip.out
     libisoburn
+    sops
+    age
+    ssh-to-age
+    nixd
+    biome
+    tree
+    nixfmt-rfc-style
   ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 }
