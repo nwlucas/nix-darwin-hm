@@ -8,7 +8,6 @@
         IdentitiesOnly yes
       '';
 
-
       matchBlocks = {
         sshNWLNEXUS = {
           host = "*.ssh.nwlnexus.net";
@@ -68,7 +67,7 @@
           forwardAgent = true;
           extraOptions = {
             PubkeyAcceptedKeyTypes = "ssh-rsa";
-            HostKeyAlgorithms = "+ssh-dss,ssh-rsa";
+            HostKeyAlgorithms = "ssh-rsa";
             KexAlgorithms = "+diffie-hellman-group14-sha1";
           };
         };
@@ -78,7 +77,7 @@
           forwardAgent = true;
           extraOptions = {
             PubkeyAcceptedKeyTypes = "ssh-rsa";
-            HostKeyAlgorithms = "+ssh-dss,ssh-rsa";
+            HostKeyAlgorithms = "ssh-rsa";
             KexAlgorithms = "+diffie-hellman-group14-sha1";
           };
         };
@@ -88,7 +87,7 @@
           forwardAgent = true;
           extraOptions = {
             PubkeyAcceptedKeyTypes = "ssh-rsa";
-            HostKeyAlgorithms = "+ssh-dss,ssh-rsa";
+            HostKeyAlgorithms = "ssh-rsa";
             KexAlgorithms = "+diffie-hellman-group14-sha1";
           };
         };
@@ -105,10 +104,6 @@
           identityFile = "%d/.ssh/reliant/id_rsa";
           forwardAgent = true;
           proxyCommand = "/opt/homebrew/bin/cloudflared access ssh --hostname %n";
-          extraOptions = {
-            PubkeyAcceptedKeyTypes = "ssh-rsa";
-            HostKeyAlgorithms = "ssh-dss,ssh-rsa";
-          };
         };
       };
     };
