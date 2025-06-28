@@ -36,7 +36,8 @@
     mac-app-util.url = "github:hraban/mac-app-util";
   };
 
-  outputs = inputs@{ self, hardware, ... }:
+  outputs =
+    inputs@{ self, hardware, ... }:
     let
       inherit (inputs.utils.lib) mkFlake;
       inherit (inputs.nixpkgs.lib.filesystem) listFilesRecursive;
@@ -44,115 +45,114 @@
       PROJECT_ROOT = builtins.toString ./.;
 
       nixosConfig = {
-       system = "x86_64-linux";
+        system = "x86_64-linux";
 
-       specialArgs = {
-         inherit hardware;
-       };
+        specialArgs = {
+          inherit hardware;
+        };
 
-       modules = [
-         inputs.persistence.nixosModule
-         inputs.hm.nixosModules.home-manager
-         ./system/nixos
-       ];
+        modules = [
+          inputs.persistence.nixosModule
+          inputs.hm.nixosModules.home-manager
+          ./system/nixos
+        ];
       };
 
       armNixosConfig = {
-       system = "aarch64-linux";
-       channelName = "nixpkgs";
+        system = "aarch64-linux";
+        channelName = "nixpkgs";
 
-       specialArgs = {
-         inherit hardware;
-       };
+        specialArgs = {
+          inherit hardware;
+        };
 
-       modules = [
-         inputs.persistence.nixosModule
-         inputs.hm.nixosModules.home-manager
-         ./system/nixos
-       ];
+        modules = [
+          inputs.persistence.nixosModule
+          inputs.hm.nixosModules.home-manager
+          ./system/nixos
+        ];
       };
 
       darwinMConfig = {
-       system = "aarch64-darwin";
-       output = "darwinConfigurations";
-       builder = inputs.darwin.lib.darwinSystem;
+        system = "aarch64-darwin";
+        output = "darwinConfigurations";
+        builder = inputs.darwin.lib.darwinSystem;
 
-       modules = [
-         inputs.hm.darwinModules.home-manager
-         inputs.mac-app-util.darwinModules.default
-         ./system/darwin
-       ];
+        modules = [
+          inputs.hm.darwinModules.home-manager
+          inputs.mac-app-util.darwinModules.default
+          ./system/darwin
+        ];
       };
 
       darwinConfig = {
-       system = "x86_64-darwin";
-       output = "darwinConfigurations";
-       builder = inputs.darwin.lib.darwinSystem;
+        system = "x86_64-darwin";
+        output = "darwinConfigurations";
+        builder = inputs.darwin.lib.darwinSystem;
 
-       modules = [
-         inputs.hm.darwinModules.home-manager
-         inputs.mac-app-util.darwinModules.default
-         ./system/darwin
-       ];
+        modules = [
+          inputs.hm.darwinModules.home-manager
+          inputs.mac-app-util.darwinModules.default
+          ./system/darwin
+        ];
       };
 
-      mkHosts = dir:
-       let
-         platform =
-           if hasSuffix "darwinM" dir then
-             darwinMConfig
-           else if hasSuffix "darwin" dir then
-             darwinConfig
-           else if hasSuffix "arm" dir then
-             armNixosConfig
-           else
-             nixosConfig;
-       in
-         listToAttrs (map
-           (host:
-             {
-               name = removeSuffix ".nix" (baseNameOf host);
-               value = platform // {
-                 modules = platform.modules ++ [ host ];
-               };
-             }
-           )
-           (listFilesRecursive dir));
+      mkHosts =
+        dir:
+        let
+          platform =
+            if hasSuffix "darwinM" dir then
+              darwinMConfig
+            else if hasSuffix "darwin" dir then
+              darwinConfig
+            else if hasSuffix "arm" dir then
+              armNixosConfig
+            else
+              nixosConfig;
+        in
+        listToAttrs (
+          map (host: {
+            name = removeSuffix ".nix" (baseNameOf host);
+            value = platform // {
+              modules = platform.modules ++ [ host ];
+            };
+          }) (listFilesRecursive dir)
+        );
 
-  in
-  mkFlake {
-  inherit self inputs;
+    in
+    mkFlake {
+      inherit self inputs;
 
-  channelsConfig = {
-   allowUnfree = true;
-  };
+      channelsConfig = {
+        allowUnfree = true;
+      };
 
-  channels = {
-   nixpkgs = {};
-   nixpkgs-stable = {};
-  };
+      channels = {
+        nixpkgs = { };
+        nixpkgs-stable = { };
+      };
 
-  sharedOverlays = [
-   inputs.vscode-extensions.overlays.default
-   inputs.rust-overlay.overlays.default
-  ];
+      sharedOverlays = [
+        inputs.vscode-extensions.overlays.default
+        inputs.rust-overlay.overlays.default
+      ];
 
-  hostDefaults = {
-   channelName = "nixpkgs-stable";
-   modules = [ ./system ];
+      hostDefaults = {
+        channelName = "nixpkgs-stable";
+        modules = [ ./system ];
 
-   extraArgs = {
-     user = "nwilliams-lucas";
-     theme = "catppuccin";
-     version = "25.05";
-     PROJECT_ROOT = PROJECT_ROOT;
-   };
-  };
+        extraArgs = {
+          user = "nwilliams-lucas";
+          theme = "catppuccin";
+          version = "25.05";
+          PROJECT_ROOT = PROJECT_ROOT;
+        };
+      };
 
-  hosts =
-   (mkHosts ./hosts/nixos) //
-   (mkHosts ./hosts/nixos-arm) //
-   (mkHosts ./hosts/darwinM) //
-   (mkHosts ./hosts/darwin);
-  };
+      hosts =
+        (mkHosts ./hosts/nixos)
+        // (mkHosts ./hosts/nixos-arm)
+        // (mkHosts ./hosts/darwinM)
+        // (mkHosts ./hosts/darwin);
+    };
 }
