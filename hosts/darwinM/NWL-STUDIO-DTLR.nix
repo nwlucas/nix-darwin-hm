@@ -1,7 +1,7 @@
 { user, ... }:
 {
   config = {
-    system.primaryUser = "nwilliams-lucas";
+    system.primaryUser = user;
     home-manager = {
       users.${user} = {
         programs = {
