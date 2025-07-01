@@ -8,6 +8,7 @@ in
 {
   config = {
     ids.gids.nixbld = 30000;
+    system.primaryUser = "nwilliams-lucas";
 
     system.primaryUser = "nwilliams-lucas";
 
