@@ -15,7 +15,6 @@
       "openssl@3"
       "k9s"
       "Azure/kubelogin/kubelogin"
-      "opentofu"
       "pgroll"
       "derailed/k9s/k9s"
       "python3"
