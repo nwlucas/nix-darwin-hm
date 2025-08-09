@@ -50,7 +50,6 @@
       "temurin"
       "temurin@20"
       "iterm2"
-      "orbstack"
       "wezterm"
       "zed"
     ];

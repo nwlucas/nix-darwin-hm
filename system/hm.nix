@@ -27,7 +27,7 @@ in
 
       users.${user} = {
         imports = cfg ++ [
-          inputs.nix-index.hmModules.nix-index
+          inputs.nix-index.homeModules.nix-index
           ../home
         ];
       };
