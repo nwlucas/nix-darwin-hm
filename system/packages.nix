@@ -51,9 +51,6 @@ in
       tree
       nixfmt-rfc-style
       wezterm
-
-      # From unstable channel
-      pkgs-unstable.biome
     ]
     ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 }
