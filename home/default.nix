@@ -93,5 +93,16 @@ in
   xdg.enable = true;
   programs.home-manager.enable = true;
   programs.go.enable = true;
+  
+  programs.zsh = {
+    initContent = ''
+      # Add ~/.zsh/completion to fpath for custom completions
+      [[ -d ~/.zsh/completion ]] || mkdir -p ~/.zsh/completion
+      if [[ ! " ''${fpath[*]} " =~ " $HOME/.zsh/completion " ]]; then
+        fpath=(~/.zsh/completion $fpath)
+      fi
+    '';
+  };
+  
   xsession.numlock.enable = pkgs.stdenv.isLinux;
 }
