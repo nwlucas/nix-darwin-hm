@@ -101,6 +101,17 @@ in
       if [[ ! " ''${fpath[*]} " =~ " $HOME/.zsh/completion " ]]; then
         fpath=(~/.zsh/completion $fpath)
       fi
+
+      # --- OneDrive DTLR symlinks ---
+      # Check for "~/OneDrive - DTLR, Inc" and link to ~/ODTLR
+      if [[ -d "$HOME/OneDrive - DTLR, Inc" && ! -e "$HOME/ODTLR" ]]; then
+        ln -s "$HOME/OneDrive - DTLR, Inc" "$HOME/ODTLR"
+      fi
+
+      # Check for "~/OneDrive - DTLR, Inc/Intune" and link to ~/Intune
+      if [[ -d "$HOME/OneDrive - DTLR, Inc/Intune" && ! -e "$HOME/Intune" ]]; then
+        ln -s "$HOME/OneDrive - DTLR, Inc/Intune" "$HOME/Intune"
+      fi
     '';
   };
   
