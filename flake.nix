@@ -109,6 +109,7 @@
               armNixosConfig
             else
               nixosConfig;
+          nixFiles = builtins.filter (file: hasSuffix ".nix" file) (listFilesRecursive dir);
         in
         listToAttrs (
           map (host: {
@@ -116,7 +117,7 @@
             value = platform // {
               modules = platform.modules ++ [ host ];
             };
-          }) (listFilesRecursive dir)
+          }) nixFiles
         );
 
     in
