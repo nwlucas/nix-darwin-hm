@@ -1,6 +1,7 @@
 { user, ... }:
 {
   config = {
+    ids.gids.nixbld = 350;
     system.primaryUser = user;
     home-manager = {
       users.${user} = {
