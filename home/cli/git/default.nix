@@ -67,7 +67,7 @@ in
       ignores = [ ".DS_Store" ];
 
       #Signing is done via the 1Password app
-      signing = {
+      signing = lib.mkIf (config.d.apps.onepassword.enable or false) {
         signByDefault = true;
         key = config.d.apps.onepassword.ssh.key;
       };
