@@ -1,30 +1,52 @@
-# Fleek Configuration
+# NWL's NixOS and macOS Configuration
 
-nix home-manager configs created by [fleek](https://github.com/ublue-os/fleek).
+This repository contains my personal declarative configurations for NixOS and macOS systems, managed using Nix Flakes. It aims to create a reproducible and consistent environment across multiple machines.
 
-## Reference
+## Core Technologies
 
-- [home-manager](https://nix-community.github.io/home-manager/)
-- [home-manager options](https://nix-community.github.io/home-manager/options.html)
+*   [Nix](https://nixos.org/): A powerful package manager and build system.
+*   [Nix Flakes](https://nixos.wiki/wiki/Flakes): A new, improved way to manage Nix expressions and dependencies.
+*   [NixOS](https://nixos.org/): A Linux distribution built on top of the Nix package manager.
+*   [nix-darwin](https://github.com/LnL7/nix-darwin): To manage macOS configurations with Nix.
+*   [home-manager](https://github.com/nix-community/home-manager): To manage user-specific environments (dotfiles, packages) declaratively.
+
+## Structure
+
+The repository is organized as follows:
+
+*   `flake.nix`: The entry point for the Nix Flake, defining inputs and outputs.
+*   `hosts/`: Contains host-specific configurations for each machine.
+*   `system/`: Contains system-level configurations, separated for `nixos` and `darwin`.
+*   `home/`: Contains user-level configurations managed by `home-manager`.
+*   `modules/`: Contains reusable Nix modules used across different configurations.
+*   `users/`: Contains user definitions.
 
 ## Usage
 
-Aliases were added to the config to make it easier to use. To use them, run the following commands:
+To apply the configuration for a specific host, you first need to identify the hostname. You can list all available host configurations by running:
 
 ```bash
-# To change into the fleek generated home-manager directory
-$ fleeks
-# To apply the configuration
-$ apply-$(hostname)
+nix flake show
 ```
 
-Your actual aliases are listed below:
-    apply-NWL-MBM2 = "nix run --impure home-manager/master -- -b bak switch --flake .#nwilliams-lucas@NWL-MBM2";
+This will show outputs like `darwinConfigurations.NWL-MBM2` or `nixosConfigurations.my-nixos-server`.
 
-    apply-NWL-STUDIO.local = "nix run --impure home-manager/master -- -b bak switch --flake .#nwilliams-lucas@NWL-STUDIO.local";
+### Applying on NixOS
 
-    fleeks = "cd ~/.local/share/fleek";
+To apply the configuration on a NixOS machine, run the following command, replacing `<hostname>` with the actual hostname of your machine:
 
-    latest-fleek-version = "nix run https://getfleek.dev/latest.tar.gz -- version";
+```bash
+sudo nixos-rebuild switch --flake .#<hostname>
+```
 
-    update-fleek = "nix run https://getfleek.dev/latest.tar.gz -- update";
+### Applying on macOS
+
+To apply the configuration on a macOS machine using `nix-darwin`, run:
+
+```bash
+darwin-rebuild switch --flake .#<hostname>
+```
+Or if you don't have `darwin-rebuild` in your path:
+```bash
+nix run nix-darwin -- switch --flake .#<hostname>
+```
