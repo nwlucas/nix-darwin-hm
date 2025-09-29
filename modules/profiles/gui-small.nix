@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ pkgs, ... }:
 
 {
   d.hm = [
@@ -8,5 +8,10 @@
   environment.systemPackages = with pkgs; [
     mtr-gui
   ];
-}
 
+  homebrew = {
+    casks = [
+      "1password"
+    ];
+  };
+}

@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   lib,
   ...
@@ -39,7 +38,6 @@
       sops
       age
       ssh-to-age
-      nixd
       tree
       nixfmt-rfc-style
       wezterm
@@ -52,4 +50,15 @@
     ../../home/cli
     ../../home/apps/wezterm
   ];
+
+  homebrew = {
+    brews = [
+      "cloudflared"
+      "openssl@3"
+      "1password-cli"
+    ];
+    taps = [
+      "cloudflare/cloudflare"
+    ];
+  };
 }
