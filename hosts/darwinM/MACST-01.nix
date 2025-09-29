@@ -1,12 +1,18 @@
 { pkgs, user, ... }:
 let
-  homePrefix =
-    if pkgs.stdenv.isDarwin
-    then "/Users"
-    else "/home";
+  homePrefix = if pkgs.stdenv.isDarwin then "/Users" else "/home";
 in
 {
   config = {
+    d.profiles = {
+      base.enable = true;
+      dev.enable = true;
+      gui-small.enable = true;
+      gui-full.enable = false;
+      business.enable = false;
+      gaming.enable = false;
+    };
+
     ids.gids.nixbld = 30000;
     system.primaryUser = user;
 
@@ -18,9 +24,9 @@ in
               text = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMdSCz3gWpimqj5AiJ5acxGKyaP0hfaZLDUTR+K35dJW";
               target = "hm_dummy/rpi-ssh";
               onChange = ''
-              rm -f ${homePrefix}/${user}/.ssh/rpi-ssh
-              cp ${homePrefix}/${user}/hm_dummy/rpi-ssh ${homePrefix}/${user}/.ssh/rpi-ssh
-              chmod u+rw ${homePrefix}/${user}/.ssh/rpi-ssh
+                rm -f ${homePrefix}/${user}/.ssh/rpi-ssh
+                cp ${homePrefix}/${user}/hm_dummy/rpi-ssh ${homePrefix}/${user}/.ssh/rpi-ssh
+                chmod u+rw ${homePrefix}/${user}/.ssh/rpi-ssh
               '';
             };
           };
