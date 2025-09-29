@@ -17,7 +17,6 @@
       "scroll-reverser"
       "parallels"
       "postman"
-      "tailscale-app"
       "cloudflare-warp"
       "zed"
     ];

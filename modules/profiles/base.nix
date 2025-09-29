@@ -55,6 +55,9 @@
       "openssl@3"
       "1password-cli"
     ];
+    casks = [
+      "tailscale-app"
+    ];
     taps = [
       "cloudflare/cloudflare"
     ];
