@@ -10,6 +10,79 @@ echo -e "${BLUE}=== Nix and Nix-Darwin Configuration Setup ===${NC}"
 echo "This script will install Nix, set up nix-darwin, and configure your personal variables."
 echo
 
+# Detect operating system
+OS="$(uname -s)"
+case "${OS}" in
+    Linux*)     MACHINE=Linux;;
+    Darwin*)    MACHINE=Mac;;
+    *)          MACHINE="UNKNOWN:${OS}"
+esac
+
+echo -e "${BLUE}Detected OS: ${MACHINE}${NC}"
+
+# Check if Homebrew is already installed
+if command -v brew >/dev/null 2>&1; then
+  echo -e "${GREEN}✓ Homebrew is already installed${NC}"
+else
+  echo -e "${YELLOW}Installing Homebrew...${NC}"
+  
+  case "${MACHINE}" in
+    Mac)
+      # Install Homebrew for macOS
+      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      ;;
+    Linux)
+      # Install Homebrew for Linux
+      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      
+      # Add Homebrew to PATH for Linux (it's typically installed in /home/linuxbrew/.linuxbrew)
+      if [ -d "/home/linuxbrew/.linuxbrew" ]; then
+        echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> ~/.bashrc
+        echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> ~/.zshrc
+        eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+      fi
+      ;;
+    *)
+      echo -e "${RED}Unsupported operating system: ${MACHINE}${NC}"
+      echo "Homebrew installation may not work correctly."
+      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      ;;
+  esac
+  
+  # Source Homebrew environment to make brew command available in current shell
+  echo -e "${YELLOW}Sourcing Homebrew environment...${NC}"
+  case "${MACHINE}" in
+    Mac)
+      # Try common macOS Homebrew locations
+      if [ -f "/opt/homebrew/bin/brew" ]; then
+        # Apple Silicon Mac
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+      elif [ -f "/usr/local/bin/brew" ]; then
+        # Intel Mac
+        eval "$(/usr/local/bin/brew shellenv)"
+      elif command -v brew >/dev/null 2>&1; then
+        # If brew is somehow already in PATH, use it
+        eval "$(brew shellenv)"
+      fi
+      ;;
+    Linux)
+      # For Linux, we already sourced it above, but let's ensure it's sourced again
+      if [ -d "/home/linuxbrew/.linuxbrew" ]; then
+        eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+      elif command -v brew >/dev/null 2>&1; then
+        eval "$(brew shellenv)"
+      fi
+      ;;
+  esac
+  
+  # Verify installation
+  if command -v brew >/dev/null 2>&1; then
+    echo -e "${GREEN}✓ Homebrew installed successfully${NC}"
+  else
+    echo -e "${RED}Warning: Homebrew installation may have failed. Please check manually.${NC}"
+  fi
+fi
+
 # Check if Nix is already installed
 if command -v nix >/dev/null 2>&1; then
   echo -e "${GREEN}✓ Nix is already installed${NC}"
