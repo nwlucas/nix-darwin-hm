@@ -55,9 +55,9 @@
       brews = [
         "cloudflared"
         "openssl@3"
-        "1password-cli"
       ];
       casks = [
+        "1password-cli"
         "tailscale-app"
       ];
       taps = [
