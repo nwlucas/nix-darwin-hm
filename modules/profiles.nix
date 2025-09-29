@@ -54,7 +54,7 @@ in
     (lib.mkIf cfg.gui-small.enable ./profiles/gui-small.nix)
     (lib.mkIf cfg.gui-full.enable ./profiles/gui-full.nix)
     (lib.mkIf cfg.business.enable ./profiles/business.nix)
-    (lib.mkIf cfg.gaming.enable ./profiles/gaming.nix)
+    # (lib.mkIf cfg.gaming.enable ./profiles/gaming.nix)
   ];
   # };
 }
