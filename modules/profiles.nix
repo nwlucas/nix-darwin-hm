@@ -47,14 +47,12 @@ in
     gaming.enable = mkBool false;
   };
 
-  # config = {
   imports = [
-    (lib.mkIf cfg.base.enable ./profiles/base.nix)
-    (lib.mkIf cfg.dev.enable ./profiles/dev.nix)
-    (lib.mkIf cfg.gui-small.enable ./profiles/gui-small.nix)
-    (lib.mkIf cfg.gui-full.enable ./profiles/gui-full.nix)
-    (lib.mkIf cfg.business.enable ./profiles/business.nix)
-    # (lib.mkIf cfg.gaming.enable ./profiles/gaming.nix)
+    ./profiles/base.nix
+    ./profiles/dev.nix
+    ./profiles/gui-small.nix
+    ./profiles/gui-full.nix
+    ./profiles/business.nix
+    # ./profiles/gaming.nix
   ];
-  # };
 }

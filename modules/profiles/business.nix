@@ -1,10 +1,13 @@
+{ config, lib, ... }:
+
 {
-  homebrew = {
-    casks = [
-      "slack"
-      "teamviewer"
-      "zoom"
-    ];
+  config = lib.mkIf config.d.profiles.business.enable {
+    homebrew = {
+      casks = [
+        "slack"
+        "teamviewer"
+        "zoom"
+      ];
+    };
   };
 }
-
