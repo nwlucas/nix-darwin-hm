@@ -14,7 +14,6 @@ in
     };
 
     ids.gids.nixbld = 350;
-
     system.primaryUser = "nwilliams-lucas";
 
     home-manager = {

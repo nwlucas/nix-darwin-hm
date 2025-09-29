@@ -11,6 +11,7 @@
     };
 
     system.primaryUser = user;
+    
     home-manager = {
       users.${user} = {
         programs = {
