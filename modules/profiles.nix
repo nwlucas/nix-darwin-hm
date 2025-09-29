@@ -3,10 +3,12 @@
 let
   cfg = config.d.profiles;
 
-  mkBool = default: lib.mkOption {
-    type = lib.types.bool;
-    default = default;
-  };
+  mkBool =
+    default:
+    lib.mkOption {
+      type = lib.types.bool;
+      default = default;
+    };
 in
 
 {
@@ -19,6 +21,12 @@ in
     # For: core configurations and programs e.g. system pkgs, fonts,
     # browsers, editors, terminal ..etc.
     base.enable = mkBool true;
+
+    # For: Minimal GUI applications
+    gui-small.enable = mkBool false;
+
+    # For: Full GUI applications
+    gui-full.enable = mkBool false;
 
     # For: Developers. Developers. Developers :)
     dev = {
@@ -38,4 +46,13 @@ in
     # For: Gaming related programs e.g. Steam
     gaming.enable = mkBool false;
   };
+
+  imports = [
+    ./profiles/base.nix
+    ./profiles/dev.nix
+    ./profiles/gui-small.nix
+    ./profiles/gui-full.nix
+    ./profiles/business.nix
+    # ./profiles/gaming.nix
+  ];
 }

@@ -1,7 +1,3 @@
 {
-  imports = [
-    ./wezterm
-
-    ./1password.nix
-  ];
+  imports = [ ];
 }

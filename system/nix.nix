@@ -1,26 +1,25 @@
-{ pkgs, lib, inputs, ... }:
-
 {
   nix = {
-    settings = {
-      trusted-users = [ "root" "@wheel" ];
-    };
+    enable = false;
+    # settings = {
+    #   trusted-users = [ "root" "@wheel" ];
+    # };
 
-    optimise = {
-      automatic = false;
-    };
+    # optimise = {
+    #   automatic = false;
+    # };
 
-    gc = {
-      automatic = true;
-      options = "--delete-older-than 10d";
-    };
+    # gc = {
+    #   automatic = true;
+    #   options = "--delete-older-than 10d";
+    # };
 
-    package = pkgs.nixVersions.latest;
-    registry.nixpkgs.flake = lib.mkDefault inputs.nixpkgs-stable;
+    # package = pkgs.nixVersions.latest;
+    # registry.nixpkgs.flake = lib.mkDefault inputs.nixpkgs-stable;
 
-    extraOptions = ''
-      experimental-features = nix-command flakes
-      warn-dirty = false
-    '';
+    # extraOptions = ''
+    #   experimental-features = nix-command flakes
+    #   warn-dirty = false
+    # '';
   };
 }

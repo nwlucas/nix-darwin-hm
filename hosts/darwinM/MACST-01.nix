@@ -8,8 +8,8 @@ in
       base.enable = true;
       dev.enable = true;
       gui-small.enable = true;
-      gui-full.enable = true;
-      business.enable = true;
+      gui-full.enable = false;
+      business.enable = false;
       gaming.enable = false;
     };
 
