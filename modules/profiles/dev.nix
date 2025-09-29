@@ -18,7 +18,6 @@
       "k9s"
       "Azure/kubelogin/kubelogin"
       "opentofu"
-      "pgroll"
       "derailed/k9s/k9s"
       "python3"
       "pipx"
@@ -29,16 +28,9 @@
       "helm"
     ];
     casks = [
-      "jetbrains-toolbox"
-      "postman"
-      "sublime-text"
-      "temurin"
       "temurin@20"
-      "iterm2"
-      "zed"
     ];
     taps = [
-      "xataio/pgroll"
       "derailed/k9s"
       "Azure/kubelogin"
     ];

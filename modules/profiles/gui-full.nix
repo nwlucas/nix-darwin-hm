@@ -1,17 +1,25 @@
+{ ... }:
+
 {
+  d.hm = [
+    ../../home/apps/1password.nix
+  ];
+
   homebrew = {
     casks = [
+      "1password"
       "angry-ip-scanner"
       "cyberduck"
       "google-chrome"
+      "jetbrains-toolbox"
       "microsoft-remote-desktop"
       "raycast"
       "scroll-reverser"
       "parallels"
-      "pandora"
+      "postman"
       "tailscale-app"
       "cloudflare-warp"
+      "zed"
     ];
   };
 }
-

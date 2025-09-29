@@ -40,7 +40,6 @@
       ssh-to-age
       tree
       nixfmt-rfc-style
-      wezterm
       gnupg
     ]
     ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
@@ -48,7 +47,6 @@
   # Add home-manager configurations for CLI tools to the list of hm modules
   d.hm = [
     ../../home/cli
-    ../../home/apps/wezterm
   ];
 
   homebrew = {
