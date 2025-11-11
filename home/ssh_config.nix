@@ -30,37 +30,6 @@
             IdentitiesOnly = "yes";
           };
         };
-        # reliantPuppet = {
-        #   host = "puppet-aws";
-        #   hostname = "172.18.0.10 ";
-        #   user = "dtlr_it";
-        #   forwardAgent = true;
-        #   identityFile = "%d/.ssh/reliant/id_rsa";
-        #   extraOptions = {
-        #     PubkeyAcceptedKeyTypes = "ssh-rsa";
-        #     HostKeyAlgorithms = "ssh-dss,ssh-rsa";
-        #   };
-        # };
-        # dtlrStores67 = {
-        #   host = "10.67.*.254";
-        #   user = "dtlr_it";
-        #   forwardAgent = true;
-        #   identityFile = "%d/.ssh/reliant/id_rsa";
-        #   extraOptions = {
-        #     PubkeyAcceptedKeyTypes = "ssh-rsa";
-        #     HostKeyAlgorithms = "ssh-dss,ssh-rsa";
-        #   };
-        # };
-        # dtlrStores66 = {
-        #   host = "10.66.*.254";
-        #   user = "dtlr_it";
-        #   forwardAgent = true;
-        #   identityFile = "%d/.ssh/reliant/id_rsa";
-        #   extraOptions = {
-        #     PubkeyAcceptedKeyTypes = "ssh-rsa";
-        #     HostKeyAlgorithms = "ssh-dss,ssh-rsa";
-        #   };
-        # };
         dtlrSwitches = {
           host = "10.254.0.*";
           user = "manager";
@@ -104,6 +73,15 @@
           identityFile = "%d/.ssh/reliant/id_rsa";
           forwardAgent = true;
           proxyCommand = "/opt/homebrew/bin/cloudflared access ssh --hostname %n";
+        };
+        tailScaleHosts = {
+          host = "*.raptor-mimosa.ts.net";
+          forwardAgent = true;
+          compression = true;
+        };
+        onePassword = {
+          host = "* exec \"test -z $SSH_TTY\"";
+          identityAgent = "\"~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock\"";
         };
       };
     };

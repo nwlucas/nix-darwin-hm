@@ -16,6 +16,7 @@ in
     ./packages.nix
     # ./safari.nix
     ./trackpad.nix
+    ./sshd.nix
   ];
 
   system.stateVersion = 4;
