@@ -20,6 +20,98 @@ in
 
   home = {
     file = {
+      "nix-darwin-reinit" = {
+        text = ''
+          #!/usr/bin/env bash
+          #
+          # nix-darwin-reinit - Reinitialize nix-darwin after macOS system upgrades
+          #
+          # After macOS system updates, the system may overwrite Nix's shell configuration
+          # files (/etc/zshrc and /etc/zprofile). This script backs up those files and
+          # reapplies the nix-darwin configuration to restore Nix integration.
+          #
+          # Usage: nix-darwin-reinit
+          #
+
+          set -euo pipefail
+
+          # Colors for output
+          RED='\033[0;31m'
+          GREEN='\033[0;32m'
+          YELLOW='\033[1;33m'
+          BLUE='\033[0;34m'
+          NC='\033[0m' # No Color
+
+          echo -e "''${BLUE}==> nix-darwin Reinitialization Script''${NC}"
+          echo
+
+          # Check if running on macOS
+          if [[ "$(uname)" != "Darwin" ]]; then
+            echo -e "''${RED}Error: This script is only for macOS systems.''${NC}"
+            exit 1
+          fi
+
+          # Check if nix-darwin is available
+          if ! command -v darwin-rebuild &> /dev/null; then
+            echo -e "''${RED}Error: darwin-rebuild command not found. Is nix-darwin installed?''${NC}"
+            exit 1
+          fi
+
+          # Default flake path
+          FLAKE_PATH="''${HOME}/nix-darwin-hm"
+
+          # Allow override via environment variable or argument
+          if [[ $# -gt 0 ]]; then
+            FLAKE_PATH="$1"
+          fi
+
+          # Verify flake path exists
+          if [[ ! -d "$FLAKE_PATH" ]]; then
+            echo -e "''${RED}Error: Flake path does not exist: $FLAKE_PATH''${NC}"
+            echo -e "''${YELLOW}Usage: nix-darwin-reinit [flake-path]''${NC}"
+            exit 1
+          fi
+
+          echo -e "''${BLUE}Using flake path:''${NC} $FLAKE_PATH"
+          echo
+
+          # Function to backup a file if it exists
+          backup_file() {
+            local file="$1"
+            if [[ -f "$file" ]]; then
+              local backup="''${file}.before-nix-darwin"
+              echo -e "''${YELLOW}Backing up:''${NC} $file -> $backup"
+              sudo mv "$file" "$backup"
+            else
+              echo -e "''${BLUE}Skipping:''${NC} $file (does not exist)"
+            fi
+          }
+
+          # Backup shell configuration files
+          echo -e "''${GREEN}Step 1: Backing up shell configuration files''${NC}"
+          backup_file "/etc/zshrc"
+          backup_file "/etc/zprofile"
+          backup_file "/etc/bashrc"
+          backup_file "/etc/bash.bashrc"
+          echo
+
+          # Rebuild nix-darwin configuration
+          echo -e "''${GREEN}Step 2: Rebuilding nix-darwin configuration''${NC}"
+          if darwin-rebuild switch --flake "$FLAKE_PATH"; then
+            echo
+            echo -e "''${GREEN}✓ nix-darwin reinitialization completed successfully!''${NC}"
+            echo
+            echo -e "''${BLUE}Note:''${NC} You may need to restart your terminal or run:"
+            echo -e "  source /etc/static/zshrc"
+          else
+            echo
+            echo -e "''${RED}✗ darwin-rebuild failed. Please check the error messages above.''${NC}"
+            exit 1
+          fi
+        '';
+        target = ".local/bin/nix-darwin-reinit";
+        executable = true;
+      };
       "Cloudflare_CA" = {
         text = ''
           -----BEGIN CERTIFICATE-----

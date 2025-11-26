@@ -4,22 +4,22 @@ This repository contains my personal declarative configurations for NixOS and ma
 
 ## Core Technologies
 
-*   [Nix](https://nixos.org/): A powerful package manager and build system.
-*   [Nix Flakes](https://nixos.wiki/wiki/Flakes): A new, improved way to manage Nix expressions and dependencies.
-*   [NixOS](https://nixos.org/): A Linux distribution built on top of the Nix package manager.
-*   [nix-darwin](https://github.com/LnL7/nix-darwin): To manage macOS configurations with Nix.
-*   [home-manager](https://github.com/nix-community/home-manager): To manage user-specific environments (dotfiles, packages) declaratively.
+* [Nix](https://nixos.org/): A powerful package manager and build system.
+* [Nix Flakes](https://nixos.wiki/wiki/Flakes): A new, improved way to manage Nix expressions and dependencies.
+* [NixOS](https://nixos.org/): A Linux distribution built on top of the Nix package manager.
+* [nix-darwin](https://github.com/LnL7/nix-darwin): To manage macOS configurations with Nix.
+* [home-manager](https://github.com/nix-community/home-manager): To manage user-specific environments (dotfiles, packages) declaratively.
 
 ## Structure
 
 The repository is organized as follows:
 
-*   `flake.nix`: The entry point for the Nix Flake, defining inputs and outputs.
-*   `hosts/`: Contains host-specific configurations for each machine.
-*   `system/`: Contains system-level configurations, separated for `nixos` and `darwin`.
-*   `home/`: Contains user-level configurations managed by `home-manager`.
-*   `modules/`: Contains reusable Nix modules used across different configurations.
-*   `users/`: Contains user definitions.
+* `flake.nix`: The entry point for the Nix Flake, defining inputs and outputs.
+* `hosts/`: Contains host-specific configurations for each machine.
+* `system/`: Contains system-level configurations, separated for `nixos` and `darwin`.
+* `home/`: Contains user-level configurations managed by `home-manager`.
+* `modules/`: Contains reusable Nix modules used across different configurations.
+* `users/`: Contains user definitions.
 
 ## Usage
 
@@ -46,7 +46,9 @@ To apply the configuration on a macOS machine using `nix-darwin`, run:
 ```bash
 darwin-rebuild switch --flake .#<hostname>
 ```
+
 Or if you don't have `darwin-rebuild` in your path:
+
 ```bash
 nix run nix-darwin -- switch --flake .#<hostname>
 ```
