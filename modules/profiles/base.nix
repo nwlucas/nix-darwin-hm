@@ -55,6 +55,7 @@
       brews = [
         "cloudflared"
         "openssl@3"
+        "gemini-cli"
       ];
       casks = [
         "1password-cli"

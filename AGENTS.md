@@ -1,6 +1,6 @@
 # AI Assistant Guide
 
-> **Note:** This file is also accessible as `CLAUDE.md` (symlink) for compatibility with Claude Code.
+> **Note:** This file is also accessible as `CLAUDE.md` and `GEMINI.md` (symlinks) for compatibility with various AI assistants.
 
 This provides guidance to AI assistants when working with this nix-darwin + Home Manager flake configuration.
 
@@ -25,6 +25,15 @@ nix fmt                                # Format all Nix files
 just                                   # List available tasks
 ```
 
+## Core Technologies
+
+- **Nix:** Package manager and system configuration foundation
+- **Nix Flakes:** Dependency management and reproducible builds
+- **NixOS:** Linux distribution for declarative system configuration
+- **nix-darwin:** Declarative macOS system configuration
+- **home-manager:** User-specific dotfiles, packages, and services
+- **Languages:** Primarily Nix, with Lua for WezTerm configuration
+
 ### Directory Structure
 
 ```bash
@@ -48,21 +57,90 @@ just                                   # List available tasks
 
 ### Adding Packages
 
-**User-level (preferred):**
+#### User-Level Packages (Preferred)
 
-1. Create `home/cli/newtool.nix` or `home/apps/newapp.nix`
-2. Add `imports = [ ./newtool.nix ];` to respective `default.nix`
-3. Use `programs.newtool.enable = true;` when available, otherwise `home.packages = [ pkgs.newtool ];`
+User-specific packages should be added to the home-manager configuration, organized by type:
 
-**System-level:**
+1. **Determine package type:** GUI application (`home/apps/`) or CLI tool (`home/cli/`)
+2. **Create configuration file:** For example, `home/cli/htop.nix`
+3. **Configure the package:** Use `programs.*` option when available, otherwise use `home.packages`
 
-- All platforms: `system/packages.nix`
-- macOS only: `system/darwin/packages.nix`
-- NixOS only: Relevant file under `system/nixos/`
+**Example using `home.packages`:**
+
+```nix
+# home/cli/htop.nix
+{ pkgs, ... }:
+{
+  home.packages = [ pkgs.htop ];
+}
+```
+
+**Example using `programs.*` (preferred when available):**
+
+```nix
+# home/cli/fzf.nix
+{ pkgs, ... }:
+{
+  programs.fzf.enable = true;
+}
+```
+
+4. **Import the new file** in `home/apps/default.nix` or `home/cli/default.nix`:
+
+```nix
+# home/cli/default.nix
+{
+  imports = [
+    ./htop.nix
+    # ... other imports
+  ];
+}
+```
+
+#### System-Level Packages
+
+For packages available to all users, add to `environment.systemPackages`:
+
+- **All platforms:** `system/packages.nix`
+- **macOS only:** `system/darwin/packages.nix`
+- **NixOS only:** Relevant file under `system/nixos/`
+
+**Example:**
+
+```nix
+# system/packages.nix
+{ pkgs, ... }:
+{
+  environment.systemPackages = with pkgs; [
+    htop
+    # ... other packages
+  ];
+}
+```
 
 ### Adding Hosts
 
-Create `hosts/<platform>/<hostname>.nix`. Platform suffix determines architecture. The filename becomes the hostname.
+To add a new host configuration:
+
+1. **Create configuration file** in appropriate subdirectory: `hosts/<platform>/<hostname>.nix`
+2. **Platform determines architecture:** `darwin/` (Intel macOS), `darwinM/` (Apple Silicon), `nixos/` (x86_64 Linux), `nixos-arm/` (ARM Linux)
+3. **Filename becomes hostname:** The base system configuration is auto-imported by `flake.nix`
+4. **List available configurations:** Run `nix flake show` to see all outputs
+
+**Example for NixOS:**
+
+```nix
+# hosts/nixos/new-server.nix
+{
+  # Set the state version for NixOS
+  system.stateVersion = "25.05";
+
+  # Host-specific configuration
+  networking.hostName = "new-server";
+
+  # Add any other host-specific options here
+}
+```
 
 ### Modifying Settings
 
@@ -70,6 +148,16 @@ Create `hosts/<platform>/<hostname>.nix`. Platform suffix determines architectur
 - **NixOS:** `system/nixos/`
 - **Cross-platform:** `system/default.nix`
 - **User environment:** `home/`
+
+### Updating Dependencies
+
+To update all flake inputs to their latest versions:
+
+```bash
+nix flake update
+```
+
+After updating, apply the configuration to your systems for changes to take effect using the appropriate rebuild command (see Essential Commands above).
 
 ## Architecture Details
 
