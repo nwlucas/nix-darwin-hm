@@ -11,6 +11,7 @@
         "1password"
         "angry-ip-scanner"
         "cyberduck"
+        "discord"
         "google-chrome"
         "jetbrains-toolbox"
         "microsoft-remote-desktop"

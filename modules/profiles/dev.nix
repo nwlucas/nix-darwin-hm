@@ -27,8 +27,6 @@
         "derailed/k9s/k9s"
         "python3"
         "pipx"
-        "ansible"
-        "ansible-lint"
         "doctl"
         "kubectl"
         "helm"

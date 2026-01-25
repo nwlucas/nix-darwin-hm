@@ -135,11 +135,19 @@
     },
     "hardware": {
       "locked": {
+<<<<<<< Updated upstream
         "lastModified": 1768736227,
         "narHash": "sha256-qgGq7CfrYKc3IBYQ7qp0Z/ZXndQVC5Bj0N8HW9mS2rM=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
         "rev": "d447553bcbc6a178618d37e61648b19e744370df",
+=======
+        "lastModified": 1768584846,
+        "narHash": "sha256-IRPmIOV2tPwxbhP/I9M5AmwhTC0lMPtoPStC+8T6xl0=",
+        "owner": "NixOS",
+        "repo": "nixos-hardware",
+        "rev": "cce68f4a54fa4e3d633358364477f5cc1d782440",
+>>>>>>> Stashed changes
         "type": "github"
       },
       "original": {
@@ -177,11 +185,19 @@
         ]
       },
       "locked": {
+<<<<<<< Updated upstream
         "lastModified": 1768598210,
         "narHash": "sha256-kkgA32s/f4jaa4UG+2f8C225Qvclxnqs76mf8zvTVPg=",
         "owner": "nix-community",
         "repo": "home-manager",
         "rev": "c47b2cc64a629f8e075de52e4742de688f930dc6",
+=======
+        "lastModified": 1747978958,
+        "narHash": "sha256-pQQnbxWpY3IiZqgelXHIe/OAE/Yv4NSQq7fch7M6nXQ=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "7419250703fd5eb50e99bdfb07a86671939103ea",
+>>>>>>> Stashed changes
         "type": "github"
       },
       "original": {
@@ -376,11 +392,19 @@
     },
     "nixpkgs_6": {
       "locked": {
+<<<<<<< Updated upstream
         "lastModified": 1768564909,
         "narHash": "sha256-Kell/SpJYVkHWMvnhqJz/8DqQg2b6PguxVWOuadbHCc=",
         "owner": "nixos",
         "repo": "nixpkgs",
         "rev": "e4bae1bd10c9c57b2cf517953ab70060a828ee6f",
+=======
+        "lastModified": 1748026106,
+        "narHash": "sha256-6m1Y3/4pVw1RWTsrkAK2VMYSzG4MMIj7sqUy7o8th1o=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "063f43f2dbdef86376cc29ad646c45c46e93234c",
+>>>>>>> Stashed changes
         "type": "github"
       },
       "original": {
@@ -428,11 +452,19 @@
         "nixpkgs": "nixpkgs_6"
       },
       "locked": {
+<<<<<<< Updated upstream
         "lastModified": 1768941735,
         "narHash": "sha256-OyxsfXNcOkt06/kM+4bnuC8moDx+t7Qr+RB0BBa83Ig=",
         "owner": "nix-community",
         "repo": "impermanence",
         "rev": "69ecf31e8fddc9354a4b418f3a517445d486bb54",
+=======
+        "lastModified": 1767822991,
+        "narHash": "sha256-iyrn9AcPZCoyxX4OT8eMkBsjG7SRUQXXS/V1JzxS7rA=",
+        "owner": "nix-community",
+        "repo": "impermanence",
+        "rev": "82e5bc4508cab9e8d5a136626276eb5bbce5e9c5",
+>>>>>>> Stashed changes
         "type": "github"
       },
       "original": {
@@ -464,11 +496,19 @@
         "nixpkgs": "nixpkgs_7"
       },
       "locked": {
+<<<<<<< Updated upstream
         "lastModified": 1768877311,
         "narHash": "sha256-abSDl0cNr0B+YCsIDpO1SjXD9JMxE4s8EFnhLEFVovI=",
         "owner": "oxalica",
         "repo": "rust-overlay",
         "rev": "59e4ab96304585fde3890025fd59bd2717985cc1",
+=======
+        "lastModified": 1768617670,
+        "narHash": "sha256-Z3+6dxoWZn+QFwjxAt5ZGXkiuCvCLgQP6pTS5eSWXqk=",
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "rev": "56d0fbdd732f3686e8414b857cf885038fc17d57",
+>>>>>>> Stashed changes
         "type": "github"
       },
       "original": {
@@ -601,11 +641,19 @@
         ]
       },
       "locked": {
+<<<<<<< Updated upstream
         "lastModified": 1768875310,
         "narHash": "sha256-yUtG7GOvsjmxf3xdHN/e5BZp5/ZoihiZgqxYJNwVD9U=",
         "owner": "nix-community",
         "repo": "nix-vscode-extensions",
         "rev": "5ec577201443e3fed2229e8a460d02202dc80be1",
+=======
+        "lastModified": 1768656526,
+        "narHash": "sha256-/bL8sjJ5bic525DRL20i7XqWmSzpQ5QI2OV+etzLiUY=",
+        "owner": "nix-community",
+        "repo": "nix-vscode-extensions",
+        "rev": "91986dac376d14f3c761a21722f6ff4fc6e3e86d",
+>>>>>>> Stashed changes
         "type": "github"
       },
       "original": {
