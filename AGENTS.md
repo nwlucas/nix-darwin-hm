@@ -50,6 +50,7 @@ just                                   # List available tasks
 │   ├── cli/             # CLI tools: git, starship, bat, etc.
 │   └── apps/            # Applications: wezterm, 1password
 ├── modules/             # Shared Nix modules
+│   └── profiles/        # Profile modules (base, dev, gui-full, etc.)
 └── users/               # User configuration schema
 ```
 
@@ -173,10 +174,19 @@ For in-depth architecture documentation, see [ARCHITECTURE.md](ARCHITECTURE.md).
 
 **Current hosts:**
 
-- **darwinM:** NWL-MBM2, NWL-STUDIO, NWL-STUDIO-DTLR
+- **darwinM:** DTLR-NWLMMINI, MACST-01, MACST-02, NWL-MBM2, NWL-MMINI, NWL-STUDIO, NWL-STUDIO-DTLR
 - **nixos-arm:** nixos-parallels, rpi-01
 
 ## Notes for AI Assistants
+
+### Workflow Rules
+
+- **Parallel work:** Always perform parallel work as much as possible to maximize efficiency
+- **Documentation updates:** Always ensure that documentation in README.md and AGENTS.md is up to date for non-trivial code changes/implementations
+- **Git commits:** Always use git commits pre and post non-trivial code changes to track progress and enable rollback
+- **Ask questions:** Ask questions for clarification if there are any ambiguities or if unsure about requirements
+
+### Code Quality
 
 - Always format Nix code with `nix fmt` after changes
 - Always address markdown lint issues
