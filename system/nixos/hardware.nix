@@ -1,5 +1,9 @@
 {
-  boot.initrd.availableKernelModules = [ "xhci_pci" "usbhid" "sr_mod" ];
+  boot.initrd.availableKernelModules = [
+    "xhci_pci"
+    "usbhid"
+    "sr_mod"
+  ];
 
   hardware = {
     bluetooth.enable = false;

@@ -155,5 +155,15 @@
         // (mkHosts ./hosts/nixos-arm)
         // (mkHosts ./hosts/darwinM)
         // (mkHosts ./hosts/darwin);
+
+      outputsBuilder = channels: {
+        formatter = inputs.treefmt-nix.lib.mkWrapper channels.nixpkgs-stable {
+          projectRootFile = "flake.nix";
+          programs.nixfmt = {
+            enable = true;
+            package = channels.nixpkgs-stable.nixfmt-rfc-style;
+          };
+        };
+      };
     };
 }

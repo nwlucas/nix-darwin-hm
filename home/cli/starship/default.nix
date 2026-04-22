@@ -15,8 +15,12 @@
       "$schema" = "https://starship.rs/config-schema.json";
 
       add_newline = false;
-      erlang = { format = "via [e $version](bold red) "; };
-      git_branch = { symbol = "🌱 "; };
+      erlang = {
+        format = "via [e $version](bold red) ";
+      };
+      git_branch = {
+        symbol = "🌱 ";
+      };
       git_commit = {
         commit_hash_length = 4;
         tag_symbol = "🔖 ";

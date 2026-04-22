@@ -31,6 +31,10 @@
         "kubectl"
         "helm"
         "gemini-cli"
+        "libpq"
+        "yq"
+        "argocd"
+        "neonctl"
       ];
       casks = [
         "temurin@20"

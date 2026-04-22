@@ -1,4 +1,10 @@
-{ config, pkgs, lib, user, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  user,
+  ...
+}:
 
 with lib;
 with pkgs.stdenv;
@@ -32,17 +38,20 @@ let
   # FIXME: remove later
   cfgHome = config.home-manager.users.${user}.d.shell;
 
-  aliases = cfg.aliases //
-    # FIXME: remove later
-    cfgHome.aliases // {
-    ".." = "cd ..";
-    "..." = "cd ../..";
-    "...." = "cd ../../..";
+  aliases =
+    cfg.aliases
+    //
+      # FIXME: remove later
+      cfgHome.aliases
+    // {
+      ".." = "cd ..";
+      "..." = "cd ../..";
+      "...." = "cd ../../..";
 
-    clear = "tput reset";
-    grep = "rg";
-    mkdir = "mkdir -p";
-  };
+      clear = "tput reset";
+      grep = "rg";
+      mkdir = "mkdir -p";
+    };
 
   variables = cfg.variables // cfgHome.variables;
 in
@@ -54,14 +63,16 @@ in
     # FIXME: remove later
     d.shell.sources = cfgHome.sources;
 
-    d.hm = [{
-      # FIXME: remove later
-      options.d.shell = module;
+    d.hm = [
+      {
+        # FIXME: remove later
+        options.d.shell = module;
 
-      config = {
-        home.sessionVariables = variables;
-        home.shellAliases = aliases;
-      };
-    }];
+        config = {
+          home.sessionVariables = variables;
+          home.shellAliases = aliases;
+        };
+      }
+    ];
   };
 }

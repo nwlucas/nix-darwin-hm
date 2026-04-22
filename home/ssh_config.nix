@@ -25,7 +25,7 @@
           host = "github.com-work";
           hostname = "github.com";
           user = "git";
-          identityFile = "%d/.ssh/glab-work";
+          identityFile = "%d/.ssh/gitlab-work-gl";
           extraOptions = {
             IdentitiesOnly = "yes";
           };
