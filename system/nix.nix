@@ -1,25 +1,31 @@
+{ pkgs, ... }:
 {
   nix = {
-    enable = false;
-    # settings = {
-    #   trusted-users = [ "root" "@wheel" ];
-    # };
+    enable = true;
 
-    # optimise = {
-    #   automatic = false;
-    # };
+    package = pkgs.nixVersions.latest;
 
-    # gc = {
-    #   automatic = true;
-    #   options = "--delete-older-than 10d";
-    # };
+    settings = {
+      trusted-users = [
+        "root"
+        "@admin"
+      ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+      download-buffer-size = 134217728; # 128 MiB — prevents buffer-full warnings on large builds
+      warn-dirty = false;
+    };
 
-    # package = pkgs.nixVersions.latest;
-    # registry.nixpkgs.flake = lib.mkDefault inputs.nixpkgs-stable;
+    optimise.automatic = true;
 
-    # extraOptions = ''
-    #   experimental-features = nix-command flakes
-    #   warn-dirty = false
-    # '';
+    gc = {
+      automatic = true;
+      interval = {
+        Weekday = 0;
+      }; # Sundays
+      options = "--delete-older-than 30d";
+    };
   };
 }
