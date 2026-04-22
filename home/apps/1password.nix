@@ -69,13 +69,12 @@ in
       exec = "1password --silent";
     };
 
-    # Fetch the GitLab work SSH private key from 1Password at activation time.
-    # Update the op:// path below to match your vault/item/field names.
-    # Run: op read "op://<vault>/<item>/<field>" to verify the path first.
+    # Fetch the GitLab work SSH private key from the dtlrinc work 1Password account.
+    # Uses --account flag to target the work account; item addressed by UUID for stability.
     home.activation.fetchGitLabWorkKey = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       key_path="$HOME/.ssh/gitlab-work-gl"
       if command -v op &>/dev/null && op account list &>/dev/null 2>&1; then
-        op read "op://Employee/GitLab Work SSH/private key" > "$key_path" 2>/dev/null \
+        op --account="dtlrinc.1password.com" read "op://Employee/3hef3bpdxdt4bdl5ptkm5d3jou/private key" > "$key_path" 2>/dev/null \
           && chmod 600 "$key_path"
       elif [ ! -f "$key_path" ]; then
         echo "Warning: 1Password CLI not signed in and ~/.ssh/gitlab-work-gl is missing." \
