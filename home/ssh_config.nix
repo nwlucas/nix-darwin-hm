@@ -30,6 +30,15 @@
             IdentitiesOnly = "yes";
           };
         };
+        glabWork = {
+          host = "gitlab-work.com";
+          hostname = "%h";
+          user = "git";
+          identityFile = "%d/.ssh/gitlab-work-gl";
+          extraOptions = {
+            IdentitiesOnly = "yes";
+          };
+        };
         dtlrSwitches = {
           host = "10.254.0.*";
           user = "manager";

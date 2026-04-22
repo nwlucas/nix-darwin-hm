@@ -118,6 +118,26 @@ in
             };
           };
         }
+        {
+          condition = "hasconfig:remote.*.url:git@gitlab-work.com/**";
+          contentSuffix = "gitconfig-work";
+          contents = {
+            user = {
+              email = "59927973+nwilliams-lucas@users.noreply.github.com";
+              name = "Nigel Williams-Lucas";
+              signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMuboq7Wpr2+0SIZoq+MeGW2+5BcvOYnA0k5a6+rvqvC";
+            };
+
+            commit = {
+              gpgsign = true;
+            };
+
+            gpg = {
+              format = "ssh";
+              ssh.program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
+            };
+          };
+        }
       ];
 
       extraConfig = {
