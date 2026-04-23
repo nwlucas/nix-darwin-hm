@@ -17,6 +17,7 @@
       powershell
       kdoctor
       nixd
+      postgresql
     ];
 
     homebrew = {
@@ -31,7 +32,6 @@
         "kubectl"
         "helm"
         "gemini-cli"
-        "libpq"
         "yq"
         "argocd"
         "neonctl"
