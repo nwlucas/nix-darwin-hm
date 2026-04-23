@@ -6,17 +6,14 @@
 }:
 
 let
-  workGitProfile = config: {
+  workGitProfile = _config: {
     user = {
       email = "59927973+nwilliams-lucas@users.noreply.github.com";
       name = "Nigel Williams-Lucas";
-      signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMuboq7Wpr2+0SIZoq+MeGW2+5BcvOYnA0k5a6+rvqvC";
+      signingkey = "~/.ssh/gitlab-work-gl";
     };
     commit.gpgsign = true;
-    gpg = {
-      format = "ssh";
-      ssh.program = config.d.apps.onepassword.ssh.sign;
-    };
+    gpg.format = "ssh";
   };
 
   aliases = {
