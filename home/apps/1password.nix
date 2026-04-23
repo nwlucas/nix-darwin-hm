@@ -73,12 +73,16 @@ in
     # Uses --account flag to target the work account; item addressed by UUID for stability.
     home.activation.fetchGitLabWorkKey = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       key_path="$HOME/.ssh/gitlab-work-gl"
-      if command -v op &>/dev/null && op account list &>/dev/null 2>&1; then
-        op --account="dtlrinc.1password.com" read "op://Employee/3hef3bpdxdt4bdl5ptkm5d3jou/private key" > "$key_path" 2>/dev/null \
-          && chmod 600 "$key_path"
-      elif [ ! -f "$key_path" ]; then
-        echo "Warning: 1Password CLI not signed in and ~/.ssh/gitlab-work-gl is missing." \
-             "SSH auth to gitlab-work.com will fail." >&2
+      if command -v op &>/dev/null; then
+        tmp="$(mktemp)"
+        if op --account="dtlrinc.1password.com" read "op://Employee/3hef3bpdxdt4bdl5ptkm5d3jou/private key" > "$tmp" 2>/dev/null \
+            && [ -s "$tmp" ]; then
+          mv "$tmp" "$key_path"
+          chmod 600 "$key_path"
+        else
+          rm -f "$tmp"
+          [ ! -f "$key_path" ] && echo "Warning: Could not fetch GitLab SSH key from 1Password. Run 'just fetch-ssh-keys' once 1Password is set up and unlocked." >&2
+        fi
       fi
     '';
   };
