@@ -26,6 +26,7 @@
           hostname = "github.com";
           user = "git";
           identityFile = "%d/.ssh/gitlab-work-gl";
+          identityAgent = "none";
           extraOptions = {
             IdentitiesOnly = "yes";
           };
@@ -35,6 +36,7 @@
           hostname = "%h";
           user = "git";
           identityFile = "%d/.ssh/gitlab-work-gl";
+          identityAgent = "none";
           extraOptions = {
             IdentitiesOnly = "yes";
           };

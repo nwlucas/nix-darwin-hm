@@ -13,7 +13,10 @@ let
       signingkey = "~/.ssh/gitlab-work-gl";
     };
     commit.gpgsign = true;
-    gpg.format = "ssh";
+    gpg = {
+      format = "ssh";
+      ssh.program = "${pkgs.openssh}/bin/ssh-keygen";
+    };
   };
 
   aliases = {

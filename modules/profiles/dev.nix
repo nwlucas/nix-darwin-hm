@@ -38,7 +38,6 @@
       ];
       casks = [
         "temurin@20"
-        "claude-code"
       ];
       taps = [
         "derailed/k9s"
