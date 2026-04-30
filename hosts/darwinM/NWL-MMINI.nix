@@ -13,6 +13,7 @@ in
       gaming.enable = false;
     };
 
+    ids.gids.nixbld = 350;
     system.primaryUser = user;
 
     home-manager = {
