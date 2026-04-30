@@ -4,6 +4,7 @@
     ./git
     ./starship
 
+    ./android.nix
     ./atuin.nix
     ./fzf.nix
     ./gh.nix
