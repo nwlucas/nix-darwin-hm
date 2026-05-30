@@ -19,7 +19,7 @@
           host = "github.com";
           hostname = "%h";
           user = "git";
-          identityFile = "%d/.ssh/id_ed25519_personal";
+          identityFile = "%d/.ssh/id_ed25519";
           identityAgent = "none";
           extraOptions = {
             IdentitiesOnly = "yes";
@@ -55,26 +55,6 @@
             KexAlgorithms = "+diffie-hellman-group14-sha1";
           };
         };
-        dtlrSwitches2 = {
-          host = "10.220.0.*";
-          user = "manager";
-          forwardAgent = true;
-          extraOptions = {
-            PubkeyAcceptedKeyTypes = "ssh-rsa";
-            HostKeyAlgorithms = "ssh-rsa";
-            KexAlgorithms = "+diffie-hellman-group14-sha1";
-          };
-        };
-        dtlrSwitches3 = {
-          host = "10.221.0.*";
-          user = "manager";
-          forwardAgent = true;
-          extraOptions = {
-            PubkeyAcceptedKeyTypes = "ssh-rsa";
-            HostKeyAlgorithms = "ssh-rsa";
-            KexAlgorithms = "+diffie-hellman-group14-sha1";
-          };
-        };
         sshDTLRONLINE = {
           host = "*.ssh.dtlronline.com";
           hostname = "%h";
@@ -85,7 +65,6 @@
           host = "*.ssh.store.dtlronline.com";
           hostname = "%h";
           user = "dtlr_it";
-          identityFile = "%d/.ssh/reliant/id_rsa";
           forwardAgent = true;
           proxyCommand = "/opt/homebrew/bin/cloudflared access ssh --hostname %n";
         };

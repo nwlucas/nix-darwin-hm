@@ -108,7 +108,7 @@ in
         github-personal = {
           type           = "sshKey";
           source         = "op://Dev/ta7qkekssx6z5v2f27bksaotzi";
-          dest           = "${config.home.homeDirectory}/.ssh/id_ed25519_personal";
+          dest           = "${config.home.homeDirectory}/.ssh/id_ed25519";
           writePublicKey = true;
           # No per-secret overrides — inherits module-level account + token.
         };

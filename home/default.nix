@@ -148,24 +148,6 @@ in
         '';
         target = "${homePrefix}/${user}/.asdfrc";
       };
-      "gh-ssh" = {
-        text = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBvhX5961G5kV7a9/p6nEBriBRUqE691VCcRDkot8EXD";
-        target = "hm_dummy/gh-ssh";
-        onChange = ''
-          rm -f ${homePrefix}/${user}/.ssh/id_ed25519
-          cp ${homePrefix}/${user}/hm_dummy/gh-ssh ${homePrefix}/${user}/.ssh/id_ed25519
-          chmod 0600 ${homePrefix}/${user}/.ssh/id_ed25519
-        '';
-      };
-      "glab-work" = {
-        text = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMuboq7Wpr2+0SIZoq+MeGW2+5BcvOYnA0k5a6+rvqvC";
-        target = "hm_dummy/glab-work";
-        onChange = ''
-          rm -f ${homePrefix}/${user}/.ssh/glab-work
-          cp ${homePrefix}/${user}/hm_dummy/glab-work ${homePrefix}/${user}/.ssh/glab-work
-          chmod 0600 ${homePrefix}/${user}/.ssh/glab-work
-        '';
-      };
     };
     username = user;
     homeDirectory = lib.mkForce "${homePrefix}/${user}";

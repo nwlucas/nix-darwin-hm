@@ -27,7 +27,7 @@ let
     user = {
       email = "4689066+nwlucas@users.noreply.github.com";
       name = "Nigel Williams-Lucas";
-      signingkey = "~/.ssh/id_ed25519_personal";
+      signingkey = "~/.ssh/id_ed25519";
     };
     commit.gpgsign = true;
     gpg = {
