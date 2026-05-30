@@ -101,12 +101,9 @@ in
       secrets = {
         gitlab-work = {
           type           = "sshKey";
-          source         = "op://Employee/3hef3bpdxdt4bdl5ptkm5d3jou";
+          source         = "op://Dev/44adgxe36ozbj2jyhwg3dfdyui";
           dest           = "${config.home.homeDirectory}/.ssh/gitlab-work-gl";
-          writePublicKey = false;
-          # Different account → op-secrets drops the module token here and
-          # uses whatever interactive `op` session exists for dtlrinc.
-          account        = "dtlrinc.1password.com";
+          writePublicKey = true;
         };
         github-personal = {
           type           = "sshKey";

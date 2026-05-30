@@ -429,14 +429,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1780054672,
-        "narHash": "sha256-mqwf+QguImpY5fgWk38a3lvpoSVj/m5KFz0wxfgZJKM=",
-        "path": "/Users/nwilliams-lucas/projects/personal/nix-op-secrets",
-        "type": "path"
+        "lastModified": 1780101934,
+        "narHash": "sha256-XRsqtlMmIlDFut1VpaYOOCpvetmTLdG81blQoApr2OI=",
+        "owner": "nwlnexus",
+        "repo": "nix-op-secrets",
+        "rev": "71d860ed2caf4e21f9cb0fa61afb46338ee8f7c0",
+        "type": "github"
       },
       "original": {
-        "path": "/Users/nwilliams-lucas/projects/personal/nix-op-secrets",
-        "type": "path"
+        "owner": "nwlnexus",
+        "repo": "nix-op-secrets",
+        "type": "github"
       }
     },
     "persistence": {
