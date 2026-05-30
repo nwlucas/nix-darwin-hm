@@ -116,7 +116,6 @@ in
           # No per-secret overrides — inherits module-level account + token.
         };
         personal-env = {
-          type     = "template";
           template = ../secrets/personal-env.tpl;
           dest     = "${config.home.homeDirectory}/projects/personal/.env";
           mode     = "0600";
