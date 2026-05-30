@@ -19,7 +19,11 @@
           host = "github.com";
           hostname = "%h";
           user = "git";
-          identityFile = "%d/.ssh/id_ed25519";
+          identityFile = "%d/.ssh/id_ed25519_personal";
+          identityAgent = "none";
+          extraOptions = {
+            IdentitiesOnly = "yes";
+          };
         };
         ghDTLR = {
           host = "github.com-work";

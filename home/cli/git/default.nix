@@ -19,6 +19,23 @@ let
     };
   };
 
+  # Personal profile bypasses the 1Password SSH agent so unattended
+  # agents can commit/push without biometric or desktop-app prompts.
+  # The private key is materialized on disk by the
+  # `fetchPersonalSSHKey` activation in home/apps/1password.nix.
+  personalGitProfile = _config: {
+    user = {
+      email = "4689066+nwlucas@users.noreply.github.com";
+      name = "Nigel Williams-Lucas";
+      signingkey = "~/.ssh/id_ed25519_personal";
+    };
+    commit.gpgsign = true;
+    gpg = {
+      format = "ssh";
+      ssh.program = "${pkgs.openssh}/bin/ssh-keygen";
+    };
+  };
+
   aliases = {
     gs = "git status";
     ga = "git add .";
@@ -91,7 +108,7 @@ in
       };
 
       includes =
-        map
+        (map
           (condition: {
             inherit condition;
             contentSuffix = "gitconfig-work";
@@ -101,7 +118,16 @@ in
             "gitdir:~/projects/work/"
             "hasconfig:remote.*.url:git@github.com-work/**"
             "hasconfig:remote.*.url:git@gitlab-work.com/**"
-          ];
+          ])
+        ++ (map
+          (condition: {
+            inherit condition;
+            contentSuffix = "gitconfig-personal";
+            contents = personalGitProfile config;
+          })
+          [
+            "gitdir:~/projects/personal/"
+          ]);
 
       extraConfig = {
         init.defaultBranch = "main";

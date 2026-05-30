@@ -36,6 +36,7 @@ in
       users.${user} = {
         imports = cfg ++ [
           inputs.nix-index.homeModules.nix-index
+          inputs.op-secrets.hmModules.default
           ../home
         ];
       };

@@ -56,6 +56,7 @@
         "cloudflared"
         "openssl@3"
         "gemini-cli"
+        "nwlnexus/olympus/atlas"
       ];
       casks = [
         "1password-cli"
@@ -63,6 +64,7 @@
       ];
       taps = [
         "cloudflare/cloudflare"
+        "nwlnexus/olympus"
       ];
     };
   };

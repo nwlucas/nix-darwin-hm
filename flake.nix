@@ -34,6 +34,12 @@
     treefmt-nix.url = "github:numtide/treefmt-nix";
 
     mac-app-util.url = "github:hraban/mac-app-util";
+
+    # 1Password → disk at activation time. Local path while iterating; switch
+    # to `github:nwlnexus/nix-op-secrets` once published with the per-secret
+    # account override.
+    op-secrets.url = "path:/Users/nwilliams-lucas/projects/personal/nix-op-secrets";
+    op-secrets.inputs.nixpkgs.follows = "nixpkgs-stable";
   };
 
   outputs =

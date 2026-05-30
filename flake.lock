@@ -422,6 +422,23 @@
         "type": "github"
       }
     },
+    "op-secrets": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs-stable"
+        ]
+      },
+      "locked": {
+        "lastModified": 1780054672,
+        "narHash": "sha256-mqwf+QguImpY5fgWk38a3lvpoSVj/m5KFz0wxfgZJKM=",
+        "path": "/Users/nwilliams-lucas/projects/personal/nix-op-secrets",
+        "type": "path"
+      },
+      "original": {
+        "path": "/Users/nwilliams-lucas/projects/personal/nix-op-secrets",
+        "type": "path"
+      }
+    },
     "persistence": {
       "inputs": {
         "home-manager": "home-manager",
@@ -452,6 +469,7 @@
         "nixos-flake": "nixos-flake",
         "nixpkgs": "nixpkgs_5",
         "nixpkgs-stable": "nixpkgs-stable",
+        "op-secrets": "op-secrets",
         "persistence": "persistence",
         "rust-overlay": "rust-overlay",
         "treefmt-nix": "treefmt-nix_3",
