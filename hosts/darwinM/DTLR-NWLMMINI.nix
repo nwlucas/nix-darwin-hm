@@ -16,7 +16,7 @@
 
     home-manager = {
       users.${user} = {
-        programs = {};
+        programs = { };
       };
     };
   };

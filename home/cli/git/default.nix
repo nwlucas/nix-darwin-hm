@@ -118,7 +118,8 @@ in
             "gitdir:~/projects/work/"
             "hasconfig:remote.*.url:git@github.com-work/**"
             "hasconfig:remote.*.url:git@gitlab-work.com/**"
-          ])
+          ]
+        )
         ++ (map
           (condition: {
             inherit condition;
@@ -127,7 +128,8 @@ in
           })
           [
             "gitdir:~/projects/personal/"
-          ]);
+          ]
+        );
 
       extraConfig = {
         init.defaultBranch = "main";

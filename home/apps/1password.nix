@@ -100,22 +100,22 @@ in
       serviceAccountTokenFile = "${config.home.homeDirectory}/.config/personal/1penv";
       secrets = {
         gitlab-work = {
-          type           = "sshKey";
-          source         = "op://Dev/44adgxe36ozbj2jyhwg3dfdyui";
-          dest           = "${config.home.homeDirectory}/.ssh/gitlab-work-gl";
+          type = "sshKey";
+          source = "op://Dev/44adgxe36ozbj2jyhwg3dfdyui";
+          dest = "${config.home.homeDirectory}/.ssh/gitlab-work-gl";
           writePublicKey = true;
         };
         github-personal = {
-          type           = "sshKey";
-          source         = "op://Dev/ta7qkekssx6z5v2f27bksaotzi";
-          dest           = "${config.home.homeDirectory}/.ssh/id_ed25519";
+          type = "sshKey";
+          source = "op://Dev/ta7qkekssx6z5v2f27bksaotzi";
+          dest = "${config.home.homeDirectory}/.ssh/id_ed25519";
           writePublicKey = true;
           # No per-secret overrides — inherits module-level account + token.
         };
         personal-env = {
           template = ../secrets/personal-env.tpl;
-          dest     = "${config.home.homeDirectory}/projects/personal/.env";
-          mode     = "0600";
+          dest = "${config.home.homeDirectory}/projects/personal/.env";
+          mode = "0600";
         };
       };
     };

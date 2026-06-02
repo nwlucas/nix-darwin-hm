@@ -22,7 +22,6 @@
 
     homebrew = {
       brews = [
-        "k9s"
         "Azure/kubelogin/kubelogin"
         "opentofu"
         "derailed/k9s/k9s"
@@ -35,6 +34,9 @@
         "yq"
         "argocd"
         "neonctl"
+        "fluxcd/tap/flux"
+        "kubecm"
+        "flyctl"
       ];
       casks = [
         "temurin@20"
