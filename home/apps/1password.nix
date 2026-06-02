@@ -97,7 +97,7 @@ in
     op-secrets = {
       enable = true;
       account = "my.1password.com";
-      serviceAccountTokenFile = "${config.home.homeDirectory}/.config/personal/1penv";
+      # serviceAccountTokenFile = "${config.home.homeDirectory}/.config/personal/1penv";
       secrets = {
         gitlab-work = {
           type = "sshKey";

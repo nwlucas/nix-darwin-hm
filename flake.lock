@@ -429,11 +429,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1780101934,
-        "narHash": "sha256-XRsqtlMmIlDFut1VpaYOOCpvetmTLdG81blQoApr2OI=",
+        "lastModified": 1780434865,
+        "narHash": "sha256-CQuBPTD7XEmOK4Y7+elvTVQQUGNWYpotVbCpSMKnyEc=",
         "owner": "nwlnexus",
         "repo": "nix-op-secrets",
-        "rev": "71d860ed2caf4e21f9cb0fa61afb46338ee8f7c0",
+        "rev": "c9b23554e6b4686c45fe2751b5f0817640380814",
         "type": "github"
       },
       "original": {

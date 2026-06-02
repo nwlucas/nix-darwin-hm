@@ -25,7 +25,7 @@ in
         op-secrets = {
           enable = true;
           account = "my.1password.com";
-          serviceAccountTokenFile = "/Users/${user}/.config/personal/1penv";
+          # serviceAccountTokenFile = "/Users/${user}/.config/personal/1penv";
           secrets = {
             op-connect-env = {
               template = ../secrets/op-connect.tpl;
