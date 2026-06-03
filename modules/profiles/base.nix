@@ -57,6 +57,10 @@
         "openssl@3"
         "gemini-cli"
         "nwlnexus/olympus/atlas"
+        "tmux"
+        "gh"
+        "mise"
+        "pkgconf"
       ];
       casks = [
         "1password-cli"
