@@ -1,8 +1,6 @@
 {
   homebrew = {
     enable = true;
-    enableBashIntegration = true;
-    enableZshIntegration = true;
     onActivation = {
       autoUpdate = true;
       upgrade = true;
