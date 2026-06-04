@@ -24,6 +24,7 @@ in
     home-manager = {
       useGlobalPkgs = true;
       useUserPackages = true;
+      backupFileExtension = "backup";
 
       sharedModules = [
         inputs.mac-app-util.homeManagerModules.default

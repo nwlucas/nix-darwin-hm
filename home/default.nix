@@ -148,6 +148,40 @@ in
         '';
         target = "${homePrefix}/${user}/.asdfrc";
       };
+      "direnv-hook-personal" = {
+        text = ''
+          #!/usr/bin/env bash
+          # Tree-level direnv config for ~/projects/personal.
+          # Sources ~/projects/personal/.env and exports its vars (incl. GITHUB_PERSONAL_ACCESS_TOKEN
+          # for the `github` MCP server, scoped to the PERSONAL gh account).
+          #
+          # Note: direnv loads only the *nearest* .envrc. Repos with their own .envrc
+          # will override this unless they also source ~/projects/personal/.env.
+
+          set -a
+          [ -f "${homePrefix}/${user}/projects/personal/.env" ] && . "${homePrefix}/${user}/projects/personal/.env"
+          [ -f "${homePrefix}/${user}/projects/personal/.op-connect" ] && . "${homePrefix}/${user}/projects/personal/.op-connect"
+          set +a
+        '';
+        target = "${homePrefix}/${user}/projects/personal/.envrc";
+      };
+      "direnv-hook-work" = {
+        text = ''
+          #!/usr/bin/env bash
+          # Tree-level direnv config for ~/projects/work.
+          # Sources ~/projects/work/.env and exports its vars (incl. GITHUB_PERSONAL_ACCESS_TOKEN
+          # for the `github` MCP server, scoped to the work gh account).
+          #
+          # Note: direnv loads only the *nearest* .envrc. Repos with their own .envrc
+          # will override this unless they also source ~/projects/work/.env.
+
+          set -a
+          [ -f "${homePrefix}/${user}/projects/work/.env" ] && . "${homePrefix}/${user}/projects/work/.env"
+          [ -f "${homePrefix}/${user}/projects/work/.op-connect" ] && . "${homePrefix}/${user}/projects/work/.op-connect"
+          set +a
+        '';
+        target = "${homePrefix}/${user}/projects/work/.envrc";
+      };
     };
     username = user;
     homeDirectory = lib.mkForce "${homePrefix}/${user}";
